@@ -25,22 +25,25 @@ void Dino::keyPressEvent(QKeyEvent *event){
     }
 }
 
-void Dino::InitJump()
-{
+void Dino::InitJump() {
+
     if(!this->jumping){
         this->jumping = true;
         this->jumpprogress = 0;
         QTimer * timer = new QTimer(this);
+        timerPointer = timer;
         connect(timer, SIGNAL(timeout()), this, SLOT(DoJump()));
         timer->start(30);
     }
+
 }
 
 void Dino::DoJump()
 {
-    if(this->jumpprogress >= 100){
+    if(this->jumpprogress >= 99){
         this->jumping = false;
-        return;
+       timerPointer->stop();
+        //return;
     }
 
     this->jumpprogress++;

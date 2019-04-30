@@ -15,6 +15,7 @@ class Dino:public QObject, public QGraphicsRectItem{
 private:
     bool jumping = false;
     int jumpprogress;
+    QTimer * timerPointer;
 
 public:
     void keyPressEvent(QKeyEvent * event);
