@@ -16,6 +16,7 @@ private:
     bool jumping = false;
     int jumpprogress;
     QTimer * timerPointer;
+    float distance;
 
 public:
     void keyPressEvent(QKeyEvent * event);

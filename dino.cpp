@@ -5,6 +5,7 @@
 #include <iostream>;
 #include <QDebug>
 #include "cactus.h"
+#include <math.h>
 
 
 
@@ -30,29 +31,35 @@ void Dino::InitJump() {
     if(!this->jumping){
         this->jumping = true;
         this->jumpprogress = 0;
+        this->distance = 0.1;
         QTimer * timer = new QTimer(this);
         timerPointer = timer;
         connect(timer, SIGNAL(timeout()), this, SLOT(DoJump()));
-        timer->start(30);
+        timer->start(1000/60);
     }
 
 }
 
 void Dino::DoJump()
 {
-    if(this->jumpprogress >= 99){
+    float jump;
+    if  (this->jumpprogress > 100){
         this->jumping = false;
-       timerPointer->stop();
+        this->distance= 0.1;
+        this->jumpprogress=1;
+        timerPointer->stop();
         //return;
     }
-
+    jump = pow(this->distance,(-1));
     this->jumpprogress++;
 
-    if(jumpprogress <= 50)
+    if(jumpprogress < 50)
     {
-        setPos(x(),y()-4);
-    }else{
-        setPos(x(),y()+4);
+        this -> distance= this->distance + 0.01;
+        setPos(x(),y()-jump);
+    }else if (jumpprogress > 50){
+        this->distance=this->distance -0.01;
+        setPos(x(),y()+jump);
     }
     std::cout << x() << "  " << y() << std::endl;
 }
