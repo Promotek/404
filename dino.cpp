@@ -4,6 +4,7 @@
 #include <QKeyEvent>
 #include <iostream>;
 #include <QDebug>
+#include "cactus.h"
 
 
 
@@ -57,4 +58,10 @@ void Dino::spawnTrail() {
     scene()->addItem(trail);
     trail->spawnLine();
 
+}
+
+void Dino::spawnCactus() {
+    Cactus * cactus = new Cactus;
+    scene()->addItem(cactus);
+    cactus->spawn();
 }

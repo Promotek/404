@@ -23,7 +23,7 @@
 
         }
     }
-
+//Function to Spawn trails on diffrent kind of levels. Here we have 3 levels
     void Trail::TrailCreate(int level) {
         if (level == 1) {
             Trail * trail1 = new Trail();
@@ -40,19 +40,13 @@
             trail3->setRect(730,540,10,10);
         }
     }
-
+//Timer to Loop the Spawning of the 3 Trails
     void Trail::spawnLine() {
         QTimer * gap1 = new QTimer();
         connect(gap1,SIGNAL(timeout()),this,SLOT(slot_create()));
         gap1->start(750);
-       /* QTimer * gap2 = new QTimer();
-        connect(gap2,SIGNAL(timeout()),this,SLOT(slot_create(2)));
-        gap2->start(2000);
-        QTimer * gap3 = new QTimer();
-        connect(gap3,SIGNAL(timeout()),this,SLOT(slot_create(3)));
-        gap3->start(2000);*/
     }
-
+//function to invoke the Function TailCreate in Order to properly get the timer working ...
     void Trail::slot_create() {
         TrailCreate(1);
         TrailCreate(2);

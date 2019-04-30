@@ -23,6 +23,7 @@ public:
 public slots:
     void spawnTrail();
     void DoJump();
+    void spawnCactus();
 };
 
 #endif // Dino
