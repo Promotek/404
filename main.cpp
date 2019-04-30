@@ -40,6 +40,7 @@ int main(int argc, char *argv[]){
 
     player->setPos(view->width()-700,view->height() - 200);
     floor->setPos(0,view->height() - 100);
+    player->spawnTrail();
 
 
     return a.exec();
