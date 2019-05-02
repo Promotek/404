@@ -15,10 +15,14 @@ class Dino:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
     bool jumping = false;
+
+
     int jumpprogress;
     QTimer * timerPointer;
     float distance;
     int baselineY;
+
+
 public:
 
 
@@ -30,6 +34,7 @@ public slots:
     void spawnTrail();
     void DoJump();
     void spawnCactus();
+
 };
 
 #endif // Dino

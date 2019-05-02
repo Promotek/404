@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
     //Dino * player = new Dino();
     //player->setRect(0,0,50,100); // change the rect from 0x0 (default) to 100x100 pixels
 
-    Dino * player = new Dino(400);
+    Dino * player = new Dino(390);
 
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht uz bewegen.
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
     view->setFixedSize(800,600);
     scene->setSceneRect(0,0,800,600);
 
-    player->setPos(view->width()-700,view->height() - 200);
+    player->setPos(view->width()-700,view->height() - 210);
     floor->setPos(0,view->height() - 100);
     //Spawn Trails
    // player->spawnTrail();

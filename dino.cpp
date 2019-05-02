@@ -15,17 +15,17 @@ setScale(4);
 this->baselineY = baselineY;
 };
 
-
 void Dino::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left){
         if (pos().x() > 0)
-        setPos(x()-10,y());
+        setPos(x()-7,y());
     }
     else if (event->key() == Qt::Key_Right){
         if (pos().x() + 100 < 800)
         setPos(x()+10,y());
     }
-    else if (event->key() == Qt::Key_Space){
+
+    if (event->key() == Qt::Key_Space || event->key() == Qt::Key_Up){
         //spawnTrail();
         this->InitJump();
         //scene()->addItem(FoodPrint);
@@ -33,7 +33,7 @@ void Dino::keyPressEvent(QKeyEvent *event){
 }
 
 void Dino::InitJump() {
-
+    std::cout << jumpprogress << " " << x() << "  " << y() << std::endl;
     if(!this->jumping){
         this->jumping = true;
         this->jumpprogress = 0;
@@ -56,6 +56,7 @@ void Dino::DoJump()
         this->distance= 0.1;
         this->jumpprogress=1;
         timerPointer->stop();
+        std::cout << "END:" << jumpprogress << " " << x() << "  " << y() << std::endl;
         return;
     }
     jump = pow(this->distance,(-1));
