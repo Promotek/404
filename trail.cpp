@@ -1,12 +1,13 @@
 #include "dino.h"
 #include "trail.h"
 #include <QGraphicsScene>
+#include <QGraphicsRectItem>
 #include <QKeyEvent>
 #include <QTimer>
 
 //#include <QDebug>
 
-    Trail::Trail() {
+    Trail::Trail() :QGraphicsRectItem(){
         setRect(765,550,10,10);
         QTimer * timer = new QTimer(this);
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));

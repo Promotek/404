@@ -3,6 +3,7 @@
 
 #include <QGraphicsRectItem>
 #include <QObject>
+#include <QGraphicsPixmapItem>
 
 class Trail:public QObject, public QGraphicsRectItem{
     Q_OBJECT

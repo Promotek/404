@@ -2,6 +2,7 @@
 #define DINO_H
 
 #include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QMainWindow>
 #include <QLabel>
@@ -10,7 +11,7 @@
 #include <QKeyEvent>
 #include <QTimer>
 
-class Dino:public QObject, public QGraphicsRectItem{
+class Dino:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
     bool jumping = false;
@@ -19,6 +20,7 @@ private:
     float distance;
 
 public:
+    Dino();
     void keyPressEvent(QKeyEvent * event);
     void InitJump();
 

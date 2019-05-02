@@ -34,3 +34,6 @@ HEADERS  += \
     cactus.h
 
 FORMS    +=
+
+RESOURCES += \
+    imgages/image.qrc

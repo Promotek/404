@@ -1,11 +1,14 @@
 #include "dino.h"
 #include "cactus.h"
 #include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <QTimer>
 
-Cactus::Cactus() {
-    setRect(790,400,50,100);
+Cactus::Cactus() : QGraphicsPixmapItem(){
+    setPixmap(QPixmap(":/Image/cactusBig0000.png"));
+    setScale(0.70);
+    setPos(790,420);
     QTimer * CactusMove= new QTimer(this);
     connect(CactusMove,SIGNAL(timeout()),this,SLOT(move()));
     CactusMove->start(1000/60);
@@ -13,6 +16,14 @@ Cactus::Cactus() {
 //Simple Move Function
 void Cactus::move(){
     // move to the left
+    if (pos().x() <= -1000) {
+        //setPos(790,400);
+        //SpawnTimer->stop();
+        //delete (this);
+        //SpawnTimer->start(1000);
+        //Cactus * newCactus = new Cactus();
+        //scene()->addItem(newCactus);
+    }
     setPos(x()-3,y());
 }
 //Create a Series of Cacti that spawn 1 time per sec

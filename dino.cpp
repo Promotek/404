@@ -1,13 +1,18 @@
 #include "dino.h"
 #include "trail.h"
 #include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 #include <QKeyEvent>
-#include <iostream>;
+#include <iostream>
 #include <QDebug>
 #include "cactus.h"
 #include <math.h>
 
 
+Dino::Dino() : QGraphicsPixmapItem() {
+setPixmap(QPixmap(":/Image/dino0000.png"));
+setScale(4);
+};
 
 
 void Dino::keyPressEvent(QKeyEvent *event){
@@ -35,7 +40,7 @@ void Dino::InitJump() {
         QTimer * timer = new QTimer(this);
         timerPointer = timer;
         connect(timer, SIGNAL(timeout()), this, SLOT(DoJump()));
-        timer->start(1000/60);
+        timer->start(1000/120);
     }
 
 }

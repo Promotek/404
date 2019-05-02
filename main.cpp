@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 
     // create an item to add to the scene
     Dino * player = new Dino();
-    player->setRect(0,0,50,100); // change the rect from 0x0 (default) to 100x100 pixels
+    //player->setRect(0,0,50,100); // change the rect from 0x0 (default) to 100x100 pixels
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht uz bewegen.
     QGraphicsRectItem * floor = new QGraphicsRectItem();
     floor->setRect(0,0,800,1);
@@ -43,8 +43,8 @@ int main(int argc, char *argv[]){
     floor->setPos(0,view->height() - 100);
     //Spawn Trails
    // player->spawnTrail();
-    //Spawn Enemy-Cactus
-   // player->spawnCactus();
+    //Spawn Cactus
+    player->spawnCactus();
 
 
 
