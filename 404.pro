@@ -25,11 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     dino.cpp \
+    scoreboard.cpp \
     trail.cpp \
     cactus.cpp
 
 HEADERS  += \
     dino.h \
+    scoreboard.h \
     trail.h \
     cactus.h
 
