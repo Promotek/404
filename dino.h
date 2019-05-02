@@ -18,9 +18,11 @@ private:
     int jumpprogress;
     QTimer * timerPointer;
     float distance;
-
+    int baselineY;
 public:
-    Dino();
+
+
+    Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
     void InitJump();
 

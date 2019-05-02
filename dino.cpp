@@ -9,9 +9,10 @@
 #include <math.h>
 
 
-Dino::Dino() : QGraphicsPixmapItem() {
+Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
 setPixmap(QPixmap(":/Image/dino0000.png"));
 setScale(4);
+this->baselineY = baselineY;
 };
 
 
@@ -38,7 +39,8 @@ void Dino::InitJump() {
         this->jumpprogress = 0;
         this->distance = 0.1;
         QTimer * timer = new QTimer(this);
-        timerPointer = timer;
+        this->timerPointer = timer;
+
         connect(timer, SIGNAL(timeout()), this, SLOT(DoJump()));
         timer->start(1000/120);
     }
@@ -48,12 +50,13 @@ void Dino::InitJump() {
 void Dino::DoJump()
 {
     float jump;
-    if  (this->jumpprogress > 100){
+
+    if  (this->jumpprogress >= 100){
         this->jumping = false;
         this->distance= 0.1;
         this->jumpprogress=1;
         timerPointer->stop();
-        //return;
+        return;
     }
     jump = pow(this->distance,(-1));
     this->jumpprogress++;
@@ -64,9 +67,13 @@ void Dino::DoJump()
         setPos(x(),y()-jump);
     }else if (jumpprogress > 50){
         this->distance=this->distance -0.01;
-        setPos(x(),y()+jump);
+        if(y()+jump > baselineY){
+            setPos(x(), baselineY);
+        }else{
+            setPos(x(),y()+jump);
+        }
     }
-    std::cout << x() << "  " << y() << std::endl;
+    std::cout << jumpprogress << " " << x() << "  " << y() << std::endl;
 }
 void Dino::spawnTrail() {
     Trail * trail = new Trail();
