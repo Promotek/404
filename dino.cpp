@@ -5,9 +5,9 @@
 #include <QKeyEvent>
 #include <iostream>
 #include <QDebug>
-#include "cactus.h"
 #include "trail_reworked.h"
 #include <math.h>
+#include "cactus.h"
 
 
 Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
@@ -50,7 +50,7 @@ void Dino::InitJump() {
 
 void Dino::DoJump()
 {
-    float jump;
+    double jump;
 
     if  (this->jumpprogress >= 100){
         this->jumping = false;
@@ -91,7 +91,6 @@ void Dino::TrailReworkedSpawn() {
 }
 
 void Dino::spawnCactus() {
-    Cactus * cactus = new Cactus;
+    Cactus * cactus = new Cactus();
     scene()->addItem(cactus);
-    cactus->spawn();
 }

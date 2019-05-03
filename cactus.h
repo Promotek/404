@@ -1,20 +1,16 @@
 #ifndef CACTUS_H
-#define CACTUS_H
-#include <QGraphicsRectItem>
-#include <QObject>
-#include <QGraphicsPixmapItem>
-#include <QTimer>
+#define H
 
-class Cactus:public QObject, public QGraphicsPixmapItem{
+#include <QObject>
+#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
+
+class Cactus: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Cactus();
-    QTimer * SpawnTimer;
-
 public slots:
     void move();
-    void spawn();
-    void CreateCactus();
 };
 
 #endif // CACTUS_H

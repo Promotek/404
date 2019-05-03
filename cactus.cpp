@@ -1,39 +1,28 @@
-#include "dino.h"
 #include "cactus.h"
+#include <QTimer>
+#include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
-#include <QKeyEvent>
-#include <QTimer>
+#include <QDebug>
 
-Cactus::Cactus() : QGraphicsPixmapItem(){
+Cactus::Cactus(): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(":/Image/cactusBig0000.png"));
     setScale(0.70);
     setPos(1300,420);
-    QTimer * CactusMove= new QTimer(this);
-    connect(CactusMove,SIGNAL(timeout()),this,SLOT(move()));
-    CactusMove->start(1000/60);
+    //setRect(1300, 420, 70, 120);
+QTimer * timer = new QTimer();
+connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+
+timer->start(50);
+
 }
-//Simple Move Function
-void Cactus::move(){
-    // move to the left
-    if (pos().x() <= -1000) {
-        //setPos(790,400);
-        //SpawnTimer->stop();
-        //delete (this);
-        //SpawnTimer->start(1000);
-        //Cactus * newCactus = new Cactus();
-        //scene()->addItem(newCactus);
+
+void Cactus::move() {
+    setPos(x() - 8, y());
+   // qDebug()<< "X Position: " << pos().x();
+    if (pos().x() + boundingRect().width() < 0) {
+        scene()->removeItem(this);
+        delete this;
+        qDebug()<< "Cactus deleted";
     }
-    setPos(x()-3,y());
-}
-//Create a Series of Cacti that spawn 1 time per sec
-void Cactus::spawn() {
-    QTimer * SpawnCactus = new QTimer();
-    connect(SpawnCactus,SIGNAL(timeout()),this,SLOT(CreateCactus()));
-    SpawnCactus->start(1000);
-}
-//Create a new cactus which moves to the left
-void Cactus::CreateCactus() {
-    Cactus * cactus = new Cactus();
-    scene()->addItem(cactus);
 }

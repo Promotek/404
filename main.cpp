@@ -49,9 +49,12 @@ int main(int argc, char *argv[]){
     player->setPos(view->width()-1100,view->height() - 200);
     floor->setPos(0,view->height() - 100);
     //Spawn Trails
-    player->TrailReworkedSpawn();
+   // player->TrailReworkedSpawn();
     //Spawn Cactus
-    player->spawnCactus();
+    QTimer * timer = new QTimer();
+    QObject::connect(timer, SIGNAL(timeout()), player, SLOT(spawnCactus()));
+
+    timer->start(3000);
 
 
 

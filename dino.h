@@ -19,7 +19,7 @@ private:
 
     int jumpprogress;
     QTimer * timerPointer;
-    float distance;
+    double distance;
     int baselineY;
 
 
