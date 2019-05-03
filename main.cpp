@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht uz bewegen.
     QGraphicsRectItem * floor = new QGraphicsRectItem();
-    floor->setRect(0,0,800,1);
+    floor->setRect(0,0,1500,1);
     // add the item to the scene
     scene->addItem(player);
     scene->addItem(floor);
@@ -41,10 +41,10 @@ int main(int argc, char *argv[]){
 
     // show the view
     view->show();
-    view->setFixedSize(800,600);
-    scene->setSceneRect(0,0,800,600);
+    view->setFixedSize(1200,600);
+    scene->setSceneRect(0,0,1200,600);
 
-    player->setPos(view->width()-700,view->height() - 200);
+    player->setPos(view->width()-1100,view->height() - 200);
     floor->setPos(0,view->height() - 100);
     //Spawn Trails
    // player->spawnTrail();

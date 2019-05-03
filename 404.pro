@@ -26,12 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     dino.cpp \
     trail.cpp \
-    cactus.cpp
+    cactus.cpp \
+    trail_reworked.cpp
 
 HEADERS  += \
     dino.h \
     trail.h \
-    cactus.h
+    cactus.h \
+    trail_reworked.h
 
 FORMS    +=
 

@@ -8,7 +8,7 @@
 Cactus::Cactus() : QGraphicsPixmapItem(){
     setPixmap(QPixmap(":/Image/cactusBig0000.png"));
     setScale(0.70);
-    setPos(790,420);
+    setPos(1300,420);
     QTimer * CactusMove= new QTimer(this);
     connect(CactusMove,SIGNAL(timeout()),this,SLOT(move()));
     CactusMove->start(1000/60);
