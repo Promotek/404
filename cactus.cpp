@@ -4,6 +4,12 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QDebug>
+#include <QGraphicsItem>
+#include <QList>
+#include "dino.h"
+#include "game.h"
+
+extern Game * game;
 
 Cactus::Cactus(): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(":/Image/cactusBig0000.png"));
@@ -17,6 +23,14 @@ Cactus::Cactus(): QObject(), QGraphicsPixmapItem() {
 }
 
 void Cactus::move() {
+    // if cactus collides with dino
+    QList<QGraphicsItem *> items = collidingItems();
+    for (int i = 0; i < items.size(); i++) {
+        if (typeid (*(items[i])) == typeid (Dino)) {
+            game->player->timerPointer->stop();
+        }
+    }
+
     setPos(x() - 8, y());
 
     if (pos().x() + boundingRect().width() < 0) {
