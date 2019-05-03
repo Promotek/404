@@ -36,7 +36,7 @@ void Scoreboard::DoTick()
         this->ticker = 0;
     }
     this->points += this->PointsByTick;
-    std::cout << "Punkte "  << this->points << std::endl;
+    //std::cout << "Punkte "  << this->points << std::endl;
 
     this->textItem->setPlainText(QString().number(this->points));
     this->ticker++;

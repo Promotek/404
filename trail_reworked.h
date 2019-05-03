@@ -11,6 +11,7 @@ class TrailReworked:public QObject, public QGraphicsRectItem{
 public:
     TrailReworked();
     QTimer * TrailTimer;
+    QTimer * Controller;
 public slots:
     void move();
     void TrailSpawn();
