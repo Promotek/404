@@ -6,8 +6,11 @@
 
 class Cactus: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
+private:
+    int moveSpeed;
+
 public:
-    Cactus();
+    Cactus(int moveSpeed = 1);
 public slots:
     void move();
 };

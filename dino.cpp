@@ -61,11 +61,6 @@ void Dino::DoJump()
     }
 }
 
-void Dino::spawnCactus() {
-    Cactus * cactus = new Cactus();
-    scene()->addItem(cactus);
-}
-
 void Dino::spawnTrail(){
     Trail * trail = new Trail(1300, 530);
     scene()->addItem(trail);

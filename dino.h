@@ -14,7 +14,6 @@ private:
     double distance;
     int baselineY;
 
-
 public:
     Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
@@ -25,7 +24,7 @@ public:
 public slots:
     void spawnTrail();
     void DoJump();
-    void spawnCactus();
+
 };
 
 #endif // Dino

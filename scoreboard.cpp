@@ -3,6 +3,11 @@
 #include <QTimer>
 #include <iostream>
 
+int Scoreboard::GetMoveSpeed()
+{
+    return this->moveSpeed;
+}
+
 void Scoreboard::Start()
 {
     this->timerPointer = new QTimer(this);
@@ -11,7 +16,7 @@ void Scoreboard::Start()
     timerPointer->start(1000/30);
 }
 
-Scoreboard::Scoreboard()
+Scoreboard::Scoreboard(int moveSpeed)
 {
     this->textItem = new QGraphicsTextItem();
     this->textItem->setPos(10,10);
@@ -19,6 +24,7 @@ Scoreboard::Scoreboard()
     this->PointsByTick = 1;
     this->ticker = 0;
     this->textItem->setFont(QFont("Times", 28, QFont::Bold));
+    this->moveSpeed = moveSpeed;
 }
 
 QGraphicsTextItem *Scoreboard::GetTextItem()
@@ -29,12 +35,19 @@ QGraphicsTextItem *Scoreboard::GetTextItem()
 void Scoreboard::DoTick()
 {
     if(ticker == 100){
+
         this->PointsByTick += 1;
         if(this->PointsByTick % 10 == 0){
             this->PointsByTick += 1;
         }
         this->ticker = 0;
     }
+
+    if(this->points%400 == 0){
+        //Speedup Cactus movement
+        this->moveSpeed += 1;
+    }
+
     this->points += this->PointsByTick;
 
     this->textItem->setPlainText(QString().number(this->points));

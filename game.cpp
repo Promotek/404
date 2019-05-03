@@ -1,5 +1,6 @@
 #include "game.h"
 #include <QApplication>
+#include "cactus.h"
 #include "dino.h"
 #include "scoreboard.h"
 #include <QGraphicsScene>
@@ -19,7 +20,7 @@ Game::Game(QWidget *parent){
 
     // create a Dino
     player = new Dino(390);
-    Scoreboard * scoreboard = new Scoreboard();
+    this->scoreboard = new Scoreboard(7);
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht uz bewegen.
     floor = new QGraphicsRectItem();
@@ -28,7 +29,7 @@ Game::Game(QWidget *parent){
     // add items to the scene
     scene->addItem(player);
     scene->addItem(floor);
-    scene->addItem(scoreboard->GetTextItem());
+    scene->addItem(this->scoreboard->GetTextItem());
 
     // make rect focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -45,12 +46,11 @@ Game::Game(QWidget *parent){
     trailTimer->start(600);
 
     //Spawn Cactus
-    QTimer * timer = new QTimer();
-    QObject::connect(timer, SIGNAL(timeout()), player, SLOT(spawnCactus()));
+    this->cactusSpawner = new CactusSpawner(this->scene, this->scoreboard);
 
-    timer->start(3000);
-
-    scoreboard->Start();
+    this->scoreboard->Start();
 
     show();
 }
+
+

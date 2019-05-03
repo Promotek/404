@@ -4,8 +4,6 @@
 #include <QGraphicsRectItem>
 #include <QLabel>
 
-
-
 class Scoreboard :public QObject
 {
     Q_OBJECT
@@ -14,10 +12,12 @@ private:
     QTimer * timerPointer;
     QGraphicsTextItem * textItem;
     int ticker;
+    int moveSpeed;
 public:
+    int GetMoveSpeed();
     int PointsByTick;
     void Start();
-    Scoreboard();
+    Scoreboard(int moveSpeed = 1);
     QGraphicsTextItem *GetTextItem();
 
 public slots:
