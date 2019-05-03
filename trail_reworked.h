@@ -4,14 +4,17 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QGraphicsPixmapItem>
+#include <QTimer>
 
 class TrailReworked:public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     TrailReworked();
-
+    QTimer * TrailTimer;
 public slots:
     void move();
+    void TrailSpawn();
+    void TrailSlot();
 };
 
 

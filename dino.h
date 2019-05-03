@@ -28,6 +28,7 @@ public:
 
 public slots:
     void spawnTrail();
+    void TrailReworkedSpawn();
     void DoJump();
     void spawnCactus();
 };

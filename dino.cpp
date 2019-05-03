@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QDebug>
 #include "cactus.h"
+#include "trail_reworked.h"
 #include <math.h>
 
 
@@ -79,6 +80,12 @@ void Dino::spawnTrail() {
     Trail * trail = new Trail();
     scene()->addItem(trail);
     trail->spawnLine();
+
+}
+void Dino::TrailReworkedSpawn() {
+    TrailReworked * trail2 = new TrailReworked();
+    scene()->addItem(trail2);
+    trail2->TrailSlot();
 
 }
 
