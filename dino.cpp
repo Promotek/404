@@ -1,13 +1,10 @@
 #include "dino.h"
+#include "cactus.h"
+#include "trail.h"
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
-#include <iostream>
-#include <QDebug>
 #include <math.h>
-#include "cactus.h"
-#include "newtrail.h"
-
 
 Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
 setPixmap(QPixmap(":/Image/dino0000.png"));
@@ -16,32 +13,21 @@ this->baselineY = baselineY;
 };
 
 void Dino::keyPressEvent(QKeyEvent *event){
-    if (event->key() == Qt::Key_Left){
-        if (pos().x() > 0)
-        setPos(x()-7,y());
-    }
-    else if (event->key() == Qt::Key_Right){
-        if (pos().x() + 100 < 800)
-        setPos(x()+10,y());
-    }
-
     if (event->key() == Qt::Key_Space || event->key() == Qt::Key_Up){
-        //spawnTrail();
         this->InitJump();
-        //scene()->addItem(FoodPrint);
     }
 }
 
 void Dino::InitJump() {
-    std::cout << jumpprogress << " " << x() << "  " << y() << std::endl;
     if(!this->jumping){
         this->jumping = true;
         this->jumpprogress = 0;
         this->distance = 0.1;
+
         QTimer * timer = new QTimer(this);
         this->timerPointer = timer;
-
         connect(timer, SIGNAL(timeout()), this, SLOT(DoJump()));
+
         timer->start(1000/120);
     }
 
@@ -56,7 +42,6 @@ void Dino::DoJump()
         this->distance= 0.1;
         this->jumpprogress=1;
         timerPointer->stop();
-        std::cout << "END:" << jumpprogress << " " << x() << "  " << y() << std::endl;
         return;
     }
     jump = pow(this->distance,(-1));
@@ -74,7 +59,6 @@ void Dino::DoJump()
             setPos(x(),y()+jump);
         }
     }
-    std::cout << jumpprogress << " " << x() << "  " << y() << std::endl;
 }
 
 void Dino::spawnCactus() {
@@ -83,10 +67,10 @@ void Dino::spawnCactus() {
 }
 
 void Dino::spawnTrail(){
-NewTrail * trail = new NewTrail(1300, 530);
-scene()->addItem(trail);
-NewTrail * trail2 = new NewTrail(1320, 525);
-scene()->addItem(trail2);
-NewTrail * trail3 = new NewTrail(1335, 520);
-scene()->addItem(trail3);
+    Trail * trail = new Trail(1300, 530);
+    scene()->addItem(trail);
+    Trail * trail2 = new Trail(1320, 525);
+    scene()->addItem(trail2);
+    Trail * trail3 = new Trail(1335, 520);
+    scene()->addItem(trail3);
 }

@@ -1,8 +1,7 @@
 #ifndef CACTUS_H
-#define H
+#define CACTUS_H
 
 #include <QObject>
-#include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 
 class Cactus: public QObject, public QGraphicsPixmapItem{

@@ -1,13 +1,8 @@
 #ifndef DINO_H
 #define DINO_H
 
-#include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include <QMainWindow>
-#include <QLabel>
-#include <QPixmap>
-#include <QDialog>
 #include <QKeyEvent>
 #include <QTimer>
 
