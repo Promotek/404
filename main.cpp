@@ -51,6 +51,12 @@ int main(int argc, char *argv[]){
     //Spawn Trails
    // player->TrailReworkedSpawn();
     //Spawn Cactus
+
+    QTimer * trailTimer = new QTimer();
+    QObject::connect(trailTimer, SIGNAL(timeout()), player, SLOT(spawnTrailRigth()));
+
+    trailTimer->start(600);
+
     QTimer * timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), player, SLOT(spawnCactus()));
 

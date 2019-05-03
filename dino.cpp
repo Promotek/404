@@ -1,13 +1,12 @@
 #include "dino.h"
-#include "trail.h"
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <iostream>
 #include <QDebug>
-#include "trail_reworked.h"
 #include <math.h>
 #include "cactus.h"
+#include "newtrail.h"
 
 
 Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
@@ -77,20 +76,17 @@ void Dino::DoJump()
     }
     std::cout << jumpprogress << " " << x() << "  " << y() << std::endl;
 }
-void Dino::spawnTrail() {
-    Trail * trail = new Trail();
-    scene()->addItem(trail);
-    trail->spawnLine();
-
-}
-void Dino::TrailReworkedSpawn() {
-    TrailReworked * trail2 = new TrailReworked();
-    scene()->addItem(trail2);
-    trail2->TrailSlot();
-
-}
 
 void Dino::spawnCactus() {
     Cactus * cactus = new Cactus();
     scene()->addItem(cactus);
+}
+
+void Dino::spawnTrail(){
+NewTrail * trail = new NewTrail(1300, 530);
+scene()->addItem(trail);
+NewTrail * trail2 = new NewTrail(1320, 525);
+scene()->addItem(trail2);
+NewTrail * trail3 = new NewTrail(1335, 520);
+scene()->addItem(trail3);
 }

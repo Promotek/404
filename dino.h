@@ -24,18 +24,14 @@ private:
 
 
 public:
-
-
     Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
     void InitJump();
 
 public slots:
     void spawnTrail();
-    void TrailReworkedSpawn();
     void DoJump();
     void spawnCactus();
-
 };
 
 #endif // Dino
