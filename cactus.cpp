@@ -8,6 +8,7 @@
 #include <QList>
 #include "dino.h"
 #include "game.h"
+#include <typeinfo>
 
 extern Game * game;
 
