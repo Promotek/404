@@ -1,14 +1,16 @@
 #include "cactus.h"
+#include "timerlist.h"
+#include "dino.h"
+#include "game.h"
+
 #include <QTimer>
 #include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
-#include <QDebug>
 #include <QGraphicsItem>
 #include <QList>
-#include "dino.h"
-#include "game.h"
 #include <typeinfo>
+
 
 extern Game * game;
 
@@ -17,10 +19,15 @@ Cactus::Cactus(int moveSpeed): QObject(), QGraphicsPixmapItem() {
     setScale(0.70);
     setPos(1300,420);
     this->moveSpeed = moveSpeed;
-    QTimer * timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
-    timer->start(50);
+    moveTimer = new QTimer();
+
+    // add Timer to list used to terminate all Timers if colliding
+    allTimers->addToList(moveTimer);
+
+    connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
+
+    moveTimer->start(50);
 }
 
 void Cactus::move() {
@@ -28,7 +35,10 @@ void Cactus::move() {
     QList<QGraphicsItem *> items = collidingItems();
     for (int i = 0; i < items.size(); i++) {
         if (typeid (*(items[i])) == typeid (Dino)) {
-            game->player->timerPointer->stop();
+            QList<QTimer *> timers = allTimers->getList();
+            for (QTimer *timer : timers) {
+                timer->stop();
+            }
         }
     }
 

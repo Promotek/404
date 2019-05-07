@@ -1,11 +1,12 @@
 #include "dino.h"
+
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <math.h>
 
-Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
-    setPixmap(QPixmap(":/Image/dino0000.png"));
+Dino::Dino(int baselineY, QString location) : QGraphicsPixmapItem() {
+    setPixmap(QPixmap(location));
     setScale(4);
     this->baselineY = baselineY;
 };
@@ -24,6 +25,8 @@ void Dino::InitJump() {
 
         QTimer * timer = new QTimer(this);
         this->timerPointer = timer;
+        allTimers->addToList(timer);
+        allTimers->addToList(timerPointer);
         connect(timer, SIGNAL(timeout()), this, SLOT(DoJump()));
 
         timer->start(1000/120);

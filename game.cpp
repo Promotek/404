@@ -3,12 +3,15 @@
 #include "cactus.h"
 #include "dino.h"
 #include "scoreboard.h"
+
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTimer>
 #include <QList>
 
-Game::Game(QWidget *parent){
+#include "timerlist.h"
+
+Game::Game(){
     // create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1200,600);
@@ -19,7 +22,7 @@ Game::Game(QWidget *parent){
     setFixedSize(1200,600);
 
     // create a Dino
-    player = new Dino(390);
+    player = new Dino(390, ":/Image/dino0000.png");
     this->scoreboard = new Scoreboard(7);
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht uz bewegen.
@@ -46,6 +49,8 @@ Game::Game(QWidget *parent){
     this->cactusSpawner = new CactusSpawner(this->scene, this->scoreboard);
 
     this->scoreboard->Start();
+
+    TimerList *test = new TimerList();
 
     show();
 }

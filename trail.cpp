@@ -1,5 +1,6 @@
 #include "trail.h"
 #include "game.h"
+
 #include <QTimer>
 #include <QObject>
 #include <QGraphicsScene>
@@ -8,10 +9,11 @@
 Trail::Trail(int xPosition, int yPosition): QObject(), QGraphicsRectItem(){
     setRect(xPosition, yPosition, 10, 10);
 
-    QTimer *timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+    moveTimer = new QTimer();
+    allTimers->addToList(moveTimer);
+    connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
 
-    timer->start(50);
+    moveTimer->start(50);
 }
 
 void Trail::move() {

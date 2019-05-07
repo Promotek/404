@@ -1,5 +1,7 @@
-#include <QApplication>
 #include "game.h"
+
+#include <QApplication>
+#include <QWidgetList>
 
 Game * game;
 

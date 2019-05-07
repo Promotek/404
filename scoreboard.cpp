@@ -8,16 +8,14 @@ int Scoreboard::GetMoveSpeed()
     return this->moveSpeed;
 }
 
-void Scoreboard::Start()
-{
+void Scoreboard::Start(){
     this->timerPointer = new QTimer(this);
-
+    allTimers->addToList(timerPointer);
     connect(this->timerPointer, &QTimer::timeout, this, &Scoreboard::DoTick);
     timerPointer->start(1000/30);
 }
 
-Scoreboard::Scoreboard(int moveSpeed)
-{
+Scoreboard::Scoreboard(int moveSpeed){
     this->textItem = new QGraphicsTextItem();
     this->textItem->setPos(10,10);
     this->points = 0;
@@ -27,13 +25,11 @@ Scoreboard::Scoreboard(int moveSpeed)
     this->moveSpeed = moveSpeed;
 }
 
-QGraphicsTextItem *Scoreboard::GetTextItem()
-{
+QGraphicsTextItem *Scoreboard::GetTextItem(){
     return this->textItem;
 }
 
-void Scoreboard::DoTick()
-{
+void Scoreboard::DoTick(){
     if(ticker == 100){
 
         this->PointsByTick += 1;

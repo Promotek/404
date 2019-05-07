@@ -1,6 +1,8 @@
 #ifndef SCOREBOARD_H
 #define SCOREBOARD_H
 
+#include "timerlist.h"
+
 #include <QGraphicsRectItem>
 #include <QLabel>
 
@@ -13,6 +15,7 @@ private:
     QGraphicsTextItem * textItem;
     int ticker;
     int moveSpeed;
+    TimerList *allTimers;
 public:
     int GetMoveSpeed();
     int PointsByTick;

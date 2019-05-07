@@ -1,12 +1,16 @@
 #include "trailspawner.h"
 #include "trail.h"
 #include "game.h"
+
 #include <QTimer>
+
+extern Game *game;
 
 TrailSpawner::TrailSpawner(QGraphicsScene *scene){
     this->scene = scene;
 
-    QTimer * timer = new QTimer();
+    timer = new QTimer();
+    allTimers->addToList(timer);
     connect(timer, SIGNAL(timeout()), this, SLOT(spawnTrail()));
 
     timer->start(600);

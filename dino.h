@@ -1,6 +1,8 @@
 #ifndef DINO_H
 #define DINO_H
 
+#include "timerlist.h"
+
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QKeyEvent>
@@ -13,9 +15,10 @@ private:
     int jumpprogress;
     double distance;
     int baselineY;
+    TimerList *allTimers;
 
 public:
-    Dino(int baselineY);
+    Dino(int baselineY, QString location);
     void keyPressEvent(QKeyEvent * event);
     void InitJump();
 
