@@ -40,10 +40,7 @@ Game::Game(QWidget *parent){
     floor->setPos(0,this->height() - 100);
 
     //Spawn Trails
-    QTimer * trailTimer = new QTimer();
-    QObject::connect(trailTimer, SIGNAL(timeout()), player, SLOT(spawnTrail()));
-
-    trailTimer->start(600);
+    this->trailSpawner = new TrailSpawner(this->scene);
 
     //Spawn Cactus
     this->cactusSpawner = new CactusSpawner(this->scene, this->scoreboard);

@@ -8,6 +8,7 @@
 #include "cactusspawner.h"
 #include "dino.h"
 #include "scoreboard.h"
+#include "trailspawner.h"
 
 class Game: public QGraphicsView{
 
@@ -19,6 +20,7 @@ public:
     QGraphicsRectItem * floor;
     Scoreboard * scoreboard;
     CactusSpawner * cactusSpawner;
+    TrailSpawner *trailSpawner;
 };
 
 #endif // GAME_H

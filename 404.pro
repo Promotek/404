@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     dino.cpp \
     game.cpp \
     scoreboard.cpp \
-    trail.cpp
+    trail.cpp \
+    trailspawner.cpp
 
 HEADERS  += \
     cactus.h \
@@ -37,7 +38,8 @@ HEADERS  += \
     dino.h \
     game.h \
     scoreboard.h \
-    trail.h
+    trail.h \
+    trailspawner.h
 
 FORMS    +=
 

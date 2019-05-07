@@ -22,7 +22,6 @@ public:
     QTimer * timerPointer;
 
 public slots:
-    void spawnTrail();
     void DoJump();
 
 };

@@ -1,15 +1,13 @@
 #include "dino.h"
-#include "cactus.h"
-#include "trail.h"
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <math.h>
 
 Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
-setPixmap(QPixmap(":/Image/dino0000.png"));
-setScale(4);
-this->baselineY = baselineY;
+    setPixmap(QPixmap(":/Image/dino0000.png"));
+    setScale(4);
+    this->baselineY = baselineY;
 };
 
 void Dino::keyPressEvent(QKeyEvent *event){
@@ -59,13 +57,4 @@ void Dino::DoJump()
             setPos(x(),y()+jump);
         }
     }
-}
-
-void Dino::spawnTrail(){
-    Trail * trail = new Trail(1300, 530);
-    scene()->addItem(trail);
-    Trail * trail2 = new Trail(1320, 525);
-    scene()->addItem(trail2);
-    Trail * trail3 = new Trail(1335, 520);
-    scene()->addItem(trail3);
 }
