@@ -50,8 +50,6 @@ Game::Game(){
 
     this->scoreboard->Start();
 
-    TimerList *test = new TimerList();
-
     show();
 }
 

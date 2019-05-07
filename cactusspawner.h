@@ -14,6 +14,7 @@ private:
     QGraphicsScene * scene;
     TimerList *allTimers;
 public:
+    QTimer *timer;
     CactusSpawner(QGraphicsScene * scene, Scoreboard * scoreboard);
 public slots:
     void spawnCactus();

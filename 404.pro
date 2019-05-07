@@ -28,6 +28,7 @@ SOURCES += main.cpp \
     cactusspawner.cpp \
     dino.cpp \
     game.cpp \
+    gameover.cpp \
     scoreboard.cpp \
     timerlist.cpp \
     trail.cpp \
@@ -38,6 +39,7 @@ HEADERS  += \
     cactusspawner.h \
     dino.h \
     game.h \
+    gameover.h \
     gameoverscreen.h \
     scoreboard.h \
     timerlist.h \
@@ -48,3 +50,5 @@ FORMS    +=
 
 RESOURCES += \
     imgages/image.qrc
+
+DISTFILES +=

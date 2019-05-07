@@ -1,7 +1,7 @@
 #include "cactus.h"
 #include "timerlist.h"
 #include "dino.h"
-#include "game.h"
+#include "gameover.h"
 
 #include <QTimer>
 #include <QObject>
@@ -11,9 +11,6 @@
 #include <QList>
 #include <typeinfo>
 
-
-extern Game * game;
-
 Cactus::Cactus(int moveSpeed): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(":/Image/cactusBig0000.png"));
     setScale(0.70);
@@ -22,7 +19,7 @@ Cactus::Cactus(int moveSpeed): QObject(), QGraphicsPixmapItem() {
 
     moveTimer = new QTimer();
 
-    // add Timer to list used to terminate all Timers if colliding
+    // add Timer to list. Used to terminate all Timers if colliding
     allTimers->addToList(moveTimer);
 
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
@@ -38,6 +35,9 @@ void Cactus::move() {
             QList<QTimer *> timers = allTimers->getList();
             for (QTimer *timer : timers) {
                 timer->stop();
+                GameOver *go = new GameOver();
+                scene()->addWidget(go->getLabel());
+                scene()->addWidget(go->getButton());
             }
         }
     }
