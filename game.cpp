@@ -50,7 +50,7 @@ void Game::startGame() {
 
     // set players and floor position
     player->setPos(width()-1100,height() - 200);
-    floor->setPos(0,this->height() - 100);
+    floor->setPos(0,this->height() - 130);
 
     //Spawn Trails
     this->trailSpawner = new TrailSpawner(this->scene);
