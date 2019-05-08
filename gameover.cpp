@@ -15,18 +15,17 @@ GameOver::GameOver(): QObject(), QGraphicsPixmapItem() {
 
 void GameOver::setButton() {
     button = new QPushButton;
-    //TODO change Icon, use reload button instead and set position to mid of x
+    //TODO change Icon, use reload button instead
     button->setIcon(QIcon(":/Image/bird2.png"));
-    button->setGeometry(550, 300, 100, 75);
+    button->setGeometry(500, 250, 200, 75);
     button->setFocus();
     connect(button, SIGNAL(clicked()), this, SLOT(createNewGame()));
 }
 
 void GameOver::setLabel() {
     label = new QLabel();
-    //TODO set position to mid of x
-    label->setFont(QFont("Times", 22));
-    label->setGeometry(500, 200, 150, 75);
+    label->setStyleSheet("background-color: rgb(255, 255, 255);");
+    label->setGeometry(510, 175, 200, 75);
     label->setText("Game Over");
 }
 
