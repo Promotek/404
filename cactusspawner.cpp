@@ -10,7 +10,7 @@ CactusSpawner::CactusSpawner(QGraphicsScene * scene, Scoreboard * scoreboard)
     allTimers->addToList(timer);
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(spawnCactus()));
 
-    timer->start(3000);
+    timer->start(5000);
 }
 
 void CactusSpawner::spawnCactus() {

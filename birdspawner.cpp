@@ -15,7 +15,7 @@ BirdSpawner::BirdSpawner(QGraphicsScene * scene, Scoreboard * scoreboard)
     allTimers->addToList(timer);
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(spawnBird()));
 
-    timer->start(4000);
+    timer->start(5000);
 }
 
 void BirdSpawner::spawnBird() {

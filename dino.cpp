@@ -43,13 +43,11 @@ void Dino::initJump() {
         this->jumpprogress = 0;
         this->distance = 0.1;
 
-        QTimer * timer = new QTimer(this);
-        this->timerPointer = timer;
-        allTimers->addToList(timer);
+        timerPointer = new QTimer(this);
         allTimers->addToList(timerPointer);
-        connect(timer, SIGNAL(timeout()), this, SLOT(doJump()));
+        connect(timerPointer, SIGNAL(timeout()), this, SLOT(doJump()));
 
-        timer->start(1000/120);
+        timerPointer->start(1000/120);
     }
 }
 
