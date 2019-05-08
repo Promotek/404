@@ -25,12 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     bird.cpp \
-    birdspawner.cpp \
     cactus.cpp \
-    cactusspawner.cpp \
     dino.cpp \
     game.cpp \
     gameover.cpp \
+    obstacle.cpp \
     scoreboard.cpp \
     timerlist.cpp \
     trail.cpp \
@@ -38,13 +37,12 @@ SOURCES += main.cpp \
 
 HEADERS  += \
     bird.h \
-    birdspawner.h \
     cactus.h \
-    cactusspawner.h \
     dino.h \
     game.h \
     gameover.h \
     gameoverscreen.h \
+    obstacle.h \
     scoreboard.h \
     timerlist.h \
     trail.h \

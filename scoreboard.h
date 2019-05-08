@@ -16,15 +16,16 @@ private:
     int ticker;
     int moveSpeed;
     TimerList *allTimers;
-public:
-    int GetMoveSpeed();
     int PointsByTick;
-    void Start();
+public:
+
     Scoreboard(int moveSpeed = 1);
-    QGraphicsTextItem *GetTextItem();
+    void start();
+    QGraphicsTextItem *getTextItem();
+    int getMoveSpeed();
 
 public slots:
-    void DoTick();
+    void doTick();
 
 };
 

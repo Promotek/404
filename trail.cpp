@@ -7,7 +7,7 @@
 #include <QGraphicsRectItem>
 
 Trail::Trail(int xPosition, int yPosition): QObject(), QGraphicsRectItem(){
-    setRect(xPosition, yPosition, 10, 10);
+    setRect(xPosition, yPosition, 15, 5);
 
     moveTimer = new QTimer();
     allTimers->addToList(moveTimer);
@@ -17,7 +17,7 @@ Trail::Trail(int xPosition, int yPosition): QObject(), QGraphicsRectItem(){
 }
 
 void Trail::move() {
-    setPos(x() - 8, y());
+    setPos(x() - 10, y());
     if (pos().x() + rect().width() < -1300) {
         scene()->removeItem(this);
         delete this;

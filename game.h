@@ -1,11 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "cactusspawner.h"
 #include "dino.h"
 #include "scoreboard.h"
 #include "trailspawner.h"
-#include "birdspawner.h"
+#include "obstacle.h"
 
 #include <QWidget>
 #include <QGraphicsScene>
@@ -23,9 +22,8 @@ public:
     Dino * player;
     QGraphicsRectItem * floor;
     Scoreboard * scoreboard;
-    CactusSpawner * cactusSpawner;
     TrailSpawner *trailSpawner;
-    BirdSpawner *birdSpawner;
+    Obstacle *obstacle;
 };
 
 #endif // GAME_H

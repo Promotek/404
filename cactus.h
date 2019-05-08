@@ -15,7 +15,7 @@ private:
 
 public:
     QTimer * moveTimer;
-    Cactus(int moveSpeed = 1);
+    Cactus(int moveSpeed = 1, QString path = "");
 public slots:
     void move();
 };

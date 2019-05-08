@@ -18,18 +18,27 @@
 extern Game *game;
 
 Bird::Bird(int moveSpeed): QObject(), QGraphicsPixmapItem() {
-    int randomX = rand() % 1300 + 1300;
-    setPos(randomX, 250);
+    int randomY = rand() % 3;
+    setPosition(1300, randomY);
     this->moveSpeed = moveSpeed;
     initFly();
-    moveTimer = new QTimer();
 
+    moveTimer = new QTimer();
     // add Timer to list. Used to terminate all Timers if colliding
     allTimers->addToList(moveTimer);
-
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
 
     moveTimer->start(50);
+}
+
+void Bird::setPosition(int x, int y) {
+    if (y == 0) {
+        setPos(x, 200);
+    } else if (y == 1) {
+        setPos(x, 250);
+    } else if (y == 2) {
+        setPos(x, 300);
+    }
 }
 
 void Bird::setImage(QString path) {
@@ -54,7 +63,7 @@ void Bird::fly() {
 }
 
 void Bird::move() {
-    // if cactus collides with dino
+    // if bird collides with dino
     QList<QGraphicsItem *> items = collidingItems();
     for (int i = 0; i < items.size(); i++) {
         if (typeid (*(items[i])) == typeid (Dino)) {

@@ -56,7 +56,7 @@ void Dino::doJump() {
     runTimer->stop();
     setImage(":/Image/dinoJump0000.png");
 
-    if  (this->jumpprogress >= 100){
+    if  (this->jumpprogress >= 150){
         initRun();
         this->jumping = false;
         this->distance= 0.1;
@@ -67,11 +67,11 @@ void Dino::doJump() {
     jump = pow(this->distance,(-1));
     this->jumpprogress++;
 
-    if(jumpprogress < 50)
+    if(jumpprogress < 75)
     {
         this -> distance= this->distance + 0.01;
         setPos(x(),y()-jump);
-    }else if (jumpprogress > 50){
+    }else if (jumpprogress > 75){
         this->distance=this->distance -0.01;
         if(y()+jump > baselineY){
             setPos(x(), baselineY);

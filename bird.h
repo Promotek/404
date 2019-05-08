@@ -1,7 +1,6 @@
 #ifndef BIRD_H
 #define BIRD_H
 
-
 #include "timerlist.h"
 
 #include <QObject>
@@ -19,6 +18,7 @@ public:
     Bird(int moveSpeed);
     void setImage(QString path);
     void initFly();
+    void setPosition(int x, int y);
 
 
 public slots:

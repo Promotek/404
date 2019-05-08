@@ -33,7 +33,7 @@ void Game::createUI() {
 void Game::startGame() {
     // create a Dino
     player = new Dino(390);
-    this->scoreboard = new Scoreboard(7);
+    this->scoreboard = new Scoreboard(15);
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht zu bewegen.
     floor = new QGraphicsRectItem();
@@ -42,7 +42,7 @@ void Game::startGame() {
     // add items to the scene
     scene->addItem(player);
     scene->addItem(floor);
-    scene->addItem(this->scoreboard->GetTextItem());
+    scene->addItem(this->scoreboard->getTextItem());
 
     // make rect focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -55,13 +55,10 @@ void Game::startGame() {
     //Spawn Trails
     this->trailSpawner = new TrailSpawner(this->scene);
 
-    //Spawn Cactus
-    this->cactusSpawner = new CactusSpawner(this->scene, this->scoreboard);
+    //Spawn Obstacle
+    this->obstacle = new Obstacle(this->scoreboard->getMoveSpeed(), scene);
 
-    //Spawn Bird
-    this->birdSpawner = new BirdSpawner(this->scene, this->scoreboard);
-
-    this->scoreboard->Start();
+    this->scoreboard->start();
 }
 
 
