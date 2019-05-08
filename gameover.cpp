@@ -26,6 +26,7 @@ void GameOver::setLabel() {
     label = new QLabel();
     label->setStyleSheet("background-color: rgb(255, 255, 255);");
     label->setGeometry(510, 175, 200, 75);
+    label->setFont(QFont("Times", 28));
     label->setText("Game Over");
 }
 
