@@ -17,10 +17,10 @@ TrailSpawner::TrailSpawner(QGraphicsScene *scene){
 }
 
 void TrailSpawner::spawnTrail(){
-    Trail * trail = new Trail(1300, 535);
+    Trail * trail = new Trail(1200, 535);
     scene->addItem(trail);
-    Trail * trail2 = new Trail(1320, 525);
+    Trail * trail2 = new Trail(1230, 525);
     scene->addItem(trail2);
-    Trail * trail3 = new Trail(1335, 515);
+    Trail * trail3 = new Trail(1250, 500);
     scene->addItem(trail3);
 }
