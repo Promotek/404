@@ -5,6 +5,7 @@
 #include "dino.h"
 #include "scoreboard.h"
 #include "trailspawner.h"
+#include "birdspawner.h"
 
 #include <QWidget>
 #include <QGraphicsScene>
@@ -22,6 +23,7 @@ public:
     Scoreboard * scoreboard;
     CactusSpawner * cactusSpawner;
     TrailSpawner *trailSpawner;
+    BirdSpawner *birdSpawner;
 };
 
 #endif // GAME_H

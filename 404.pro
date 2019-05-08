@@ -24,6 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
+    bird.cpp \
+    birdspawner.cpp \
     cactus.cpp \
     cactusspawner.cpp \
     dino.cpp \
@@ -35,6 +37,8 @@ SOURCES += main.cpp \
     trailspawner.cpp
 
 HEADERS  += \
+    bird.h \
+    birdspawner.h \
     cactus.h \
     cactusspawner.h \
     dino.h \

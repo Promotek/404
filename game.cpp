@@ -48,6 +48,9 @@ Game::Game(){
     //Spawn Cactus
     this->cactusSpawner = new CactusSpawner(this->scene, this->scoreboard);
 
+    //Spawn Bird
+    this->birdSpawner = new BirdSpawner(this->scene, this->scoreboard);
+
     this->scoreboard->Start();
 
     show();
