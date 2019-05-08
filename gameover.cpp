@@ -8,6 +8,9 @@
 #include <QPushButton>
 #include <QFontDatabase>
 
+
+extern Game *game;
+
 GameOver::GameOver(): QObject(), QGraphicsPixmapItem() {
     this->setLabel();
     this->setButton();
@@ -39,6 +42,5 @@ QLabel* GameOver::getLabel() {
 }
 
 void GameOver::createNewGame() {
-    Game *game = new Game();
-    game->show();
+    game->createUI();
 }

@@ -12,6 +12,10 @@
 #include "timerlist.h"
 
 Game::Game(){
+   createUI();
+}
+
+void Game::createUI() {
     // create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1200,600);
@@ -21,6 +25,12 @@ Game::Game(){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1200,600);
 
+    startGame();
+
+    show();
+}
+
+void Game::startGame() {
     // create a Dino
     player = new Dino(390);
     this->scoreboard = new Scoreboard(7);
@@ -52,8 +62,6 @@ Game::Game(){
     this->birdSpawner = new BirdSpawner(this->scene, this->scoreboard);
 
     this->scoreboard->Start();
-
-    show();
 }
 
 

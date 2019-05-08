@@ -16,6 +16,8 @@ class Game: public QGraphicsView{
 
 public:
     Game();
+    void startGame();
+    void createUI();
 
     QGraphicsScene * scene;
     Dino * player;
