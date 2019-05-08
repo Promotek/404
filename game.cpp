@@ -22,10 +22,10 @@ Game::Game(){
     setFixedSize(1200,600);
 
     // create a Dino
-    player = new Dino(390, ":/Image/dino0000.png");
+    player = new Dino(390);
     this->scoreboard = new Scoreboard(7);
 
-    //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht uz bewegen.
+    //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht zu bewegen.
     floor = new QGraphicsRectItem();
     floor->setRect(0,0,1500,1);
 

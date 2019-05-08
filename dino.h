@@ -16,17 +16,20 @@ private:
     double distance;
     int baselineY;
     TimerList *allTimers;
+    QTimer *runTimer;
 
 public:
-    Dino(int baselineY, QString location);
+    Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
-    void InitJump();
+    void initJump();
+    void setImage(QString path);
+    void initRun();
 
     QTimer * timerPointer;
 
 public slots:
-    void DoJump();
-
+    void doJump();
+    void run();
 };
 
 #endif // Dino
