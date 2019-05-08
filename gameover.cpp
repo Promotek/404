@@ -7,6 +7,7 @@
 #include <QGraphicsItem>
 #include <QPushButton>
 #include <QFontDatabase>
+#include <QIcon>
 
 
 extern Game *game;
@@ -17,20 +18,21 @@ GameOver::GameOver(): QObject(), QGraphicsPixmapItem() {
 }
 
 void GameOver::setButton() {
-    button = new QPushButton;
-    //TODO change Icon, use reload button instead
-    button->setIcon(QIcon(":/Image/bird2.png"));
+    button = new QPushButton();
     button->setGeometry(500, 250, 200, 75);
-    button->setFocus();
+    button->setFlat(true);
+    button->setIcon(QIcon(":/Image/reloadButton.png"));
+    button->setIconSize(QSize(200, 75));
+    button->setStyleSheet("background-color: rgb(255, 255, 255);");
     connect(button, SIGNAL(clicked()), this, SLOT(createNewGame()));
 }
 
 void GameOver::setLabel() {
     label = new QLabel();
     label->setStyleSheet("background-color: rgb(255, 255, 255);");
-    label->setGeometry(510, 175, 200, 75);
+    label->setGeometry(410, 175, 400, 75);
     label->setFont(QFont("Times", 28));
-    label->setText("Game Over");
+    label->setPixmap(QPixmap(":/Image/gameover.png"));
 }
 
 QPushButton* GameOver::getButton() {

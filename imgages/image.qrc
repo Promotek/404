@@ -13,5 +13,7 @@
         <file>dinoduck0000.png</file>
         <file>dinoduck0001.png</file>
         <file>dinoJump0000.png</file>
+        <file>reloadButton.png</file>
+        <file>gameover.png</file>
     </qresource>
 </RCC>
