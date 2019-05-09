@@ -7,7 +7,7 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 
-class Cactus: public QObject, public QGraphicsPixmapItem{
+class Cactus: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 private:
     int moveSpeed;

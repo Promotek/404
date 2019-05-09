@@ -7,6 +7,8 @@
 
 #include <math.h>
 
+extern Game *game;
+
 Obstacle::Obstacle(int moveSpeed, QGraphicsScene *scene){
     this->moveSpeed = moveSpeed;
     this->scene = scene;

@@ -37,7 +37,7 @@ void Scoreboard::doTick(){
         this->ticker = 0;
     }
 
-    if(this->points%400 == 0){
+    if(this->points%200 == 0){
         //Speedup Cactus movement
         this->moveSpeed += 1;
     }

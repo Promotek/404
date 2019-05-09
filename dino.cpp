@@ -1,12 +1,16 @@
 #include "dino.h"
+#include "game.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <math.h>
 
+extern Game *game;
+
 Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
     this->baselineY = baselineY;
+    this->duckPosition = baselineY + 40;
     initRun();
 };
 
@@ -24,6 +28,7 @@ void Dino::run() {
     } else if (random == 2) {
         setImage(":/Image/dinorun0001.png");
     }
+    setPos(x(), baselineY);
 }
 
 void Dino::setImage(QString path){
@@ -34,7 +39,38 @@ void Dino::setImage(QString path){
 void Dino::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Space || event->key() == Qt::Key_Up){
         this->initJump();
+    } else if (event->key() == Qt::Key_Down) {
+        this->initDuck();
     }
+}
+
+void Dino::keyReleaseEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Down) {
+        duckTimer->stop();
+        this->initRun();
+    }
+}
+
+void Dino::initDuck() {
+    runTimer->stop();
+
+    duckTimer = new QTimer();
+    allTimers->addToList(duckTimer);
+    connect(duckTimer, SIGNAL(timeout()), this, SLOT(duck()));
+    duckTimer->start(1000/100);
+}
+
+void Dino::duck() {
+    runTimer->stop();
+    int random = rand() % 2 + 1;
+    if (random == 1) {
+       setImage(":/Image/dinoduck0000.png");
+       setScale(2.4);
+    } else if (random == 2) {
+        setImage(":/Image/dinoduck0001.png");
+        setScale(2.4);
+    }
+    setPos(x(), duckPosition);
 }
 
 void Dino::initJump() {
@@ -54,6 +90,9 @@ void Dino::initJump() {
 void Dino::doJump() {
     double jump;
     runTimer->stop();
+    if (duckTimer != nullptr) {
+        duckTimer->stop();
+    }
     setImage(":/Image/dinoJump0000.png");
 
     if  (this->jumpprogress >= 150){

@@ -17,7 +17,7 @@ Trail::Trail(int xPosition, int yPosition): QObject(), QGraphicsRectItem(){
 }
 
 void Trail::move() {
-    setPos(x() - 10, y());
+    setPos(x() - 12, y());
     if (pos().x() + rect().width() < -1300) {
         scene()->removeItem(this);
         delete this;

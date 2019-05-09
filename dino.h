@@ -15,21 +15,26 @@ private:
     int jumpprogress;
     double distance;
     int baselineY;
+    int duckPosition;
     TimerList *allTimers;
     QTimer *runTimer;
+    QTimer *duckTimer;
 
 public:
     Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
+    void keyReleaseEvent(QKeyEvent *event);
     void initJump();
     void setImage(QString path);
     void initRun();
+    void initDuck();
 
     QTimer * timerPointer;
 
 public slots:
     void doJump();
     void run();
+    void duck();
 };
 
 #endif // Dino

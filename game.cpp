@@ -32,7 +32,7 @@ void Game::createUI() {
 
 void Game::startGame() {
     // create a Dino
-    player = new Dino(390);
+    player = new Dino(400);
     this->scoreboard = new Scoreboard(15);
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht zu bewegen.
