@@ -10,8 +10,6 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QList>
-#include <typeinfo>
-#include <QDebug>
 
 extern Game *game;
 
@@ -53,8 +51,6 @@ void Cactus::move() {
             game->player->clearFocus();
         }
     }
-
-    qDebug()<<moveSpeed;
 
     setPos(x() - moveSpeed, y());
 
