@@ -1,8 +1,11 @@
 #include "scoreboard.h"
+#include "game.h"
 
 #include <QTimer>
 
-Scoreboard::Scoreboard(int moveSpeed){
+extern Game *game;
+
+Scoreboard::Scoreboard(double moveSpeed){
     this->textItem = new QGraphicsTextItem();
     this->textItem->setPos(10,10);
     this->points = 0;
@@ -12,7 +15,7 @@ Scoreboard::Scoreboard(int moveSpeed){
     this->moveSpeed = moveSpeed;
 }
 
-int Scoreboard::getMoveSpeed() {
+double Scoreboard::getMoveSpeed() {
     return this->moveSpeed;
 }
 
@@ -37,9 +40,13 @@ void Scoreboard::doTick(){
         this->ticker = 0;
     }
 
-    if(this->points%200 == 0){
+    if(this->points% 100 == 0){
         //Speedup Cactus movement
         this->moveSpeed += 1;
+        if (this->moveSpeed >= 120) {
+            this->moveSpeed = 120;
+        }
+        game->obstacle->setMoveSpeed(moveSpeed);
     }
 
     this->points += this->PointsByTick;

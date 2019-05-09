@@ -14,13 +14,14 @@ private:
     bool jumping = false;
     int jumpprogress;
     double distance;
-    int baselineY;
     int duckPosition;
     TimerList *allTimers;
     QTimer *runTimer;
     QTimer *duckTimer;
 
 public:
+    int baselineY;
+
     Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent *event);
@@ -28,6 +29,7 @@ public:
     void setImage(QString path);
     void initRun();
     void initDuck();
+    void setPosition(qreal x, qreal y);
 
     QTimer * timerPointer;
 

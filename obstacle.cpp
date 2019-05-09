@@ -9,7 +9,7 @@
 
 extern Game *game;
 
-Obstacle::Obstacle(int moveSpeed, QGraphicsScene *scene){
+Obstacle::Obstacle(double moveSpeed, QGraphicsScene *scene){
     this->moveSpeed = moveSpeed;
     this->scene = scene;
 
@@ -21,24 +21,28 @@ Obstacle::Obstacle(int moveSpeed, QGraphicsScene *scene){
 
 }
 
+void Obstacle::setMoveSpeed(double moveSpeed) {
+    this->moveSpeed = moveSpeed;
+}
+
 void Obstacle::setObstacle() {
     int random = rand() % 4;
 
     if (random == 0) {
         //bird
-        Bird *bird = new Bird(moveSpeed);
+        bird = new Bird(moveSpeed);
         scene->addItem(bird);
     } else if(random == 1) {
         //cactusBig
-        Cactus *cactus = new Cactus(moveSpeed, ":/Image/cactusBig0000.png");
+        cactus = new Cactus(moveSpeed, ":/Image/cactusBig0000.png");
         scene->addItem(cactus);
     } else if(random == 2) {
         //cactusSmall
-        Cactus *cactus = new Cactus(moveSpeed, ":/Image/cactusSmall0000.png");
+        cactus = new Cactus(moveSpeed, ":/Image/cactusSmall0000.png");
         scene->addItem(cactus);
     } else if (random == 3) {
         //cactusMany
-        Cactus *cactus = new Cactus(moveSpeed, ":/Image/cactusSmallMany0000.png");
+        cactus = new Cactus(moveSpeed, ":/Image/cactusSmallMany0000.png");
         scene->addItem(cactus);
     }
 }

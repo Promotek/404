@@ -2,6 +2,8 @@
 #define OBSTACLE_H
 
 #include "timerlist.h"
+#include "bird.h"
+#include "cactus.h"
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
@@ -11,14 +13,17 @@
 class Obstacle: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 private:
-     int moveSpeed;
+     double moveSpeed;
      TimerList *allTimers;
      QTimer *timer;
      QGraphicsScene *scene;
 
 public:
+     Bird *bird;
+     Cactus *cactus;
 
-    Obstacle(int moveSpeed = 1, QGraphicsScene *scene = nullptr);
+     Obstacle(double moveSpeed = 1, QGraphicsScene *scene = nullptr);
+     void setMoveSpeed(double moveSpeed);
 
 public slots:
     void setObstacle();

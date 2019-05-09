@@ -52,13 +52,13 @@ void Game::startGame() {
     player->setPos(width()-1100,height() - 200);
     floor->setPos(0,this->height() - 130);
 
+    this->scoreboard->start();
+
     //Spawn Trails
     this->trailSpawner = new TrailSpawner(this->scene);
 
     //Spawn Obstacle
     this->obstacle = new Obstacle(this->scoreboard->getMoveSpeed(), scene);
-
-    this->scoreboard->start();
 }
 
 

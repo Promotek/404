@@ -11,10 +11,11 @@
 #include <QGraphicsItem>
 #include <QList>
 #include <typeinfo>
+#include <QDebug>
 
 extern Game *game;
 
-Cactus::Cactus(int moveSpeed, QString path): QObject(), QGraphicsPixmapItem() {
+Cactus::Cactus(double moveSpeed, QString path): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(path));
     setScale(0.70);
     setPos(1300,420);
@@ -30,12 +31,18 @@ Cactus::Cactus(int moveSpeed, QString path): QObject(), QGraphicsPixmapItem() {
     moveTimer->start(50);
 }
 
+void Cactus::setMoveSpeed(double moveSpeed) {
+    this->moveSpeed = moveSpeed;
+}
+
 void Cactus::move() {
     // if cactus collides with dino
     QList<QGraphicsItem *> items = collidingItems();
     for (int i = 0; i < items.size(); i++) {
         if (typeid (*(items[i])) == typeid (Dino)) {
-            game->player->setImage(":/Image/dinoDead0000.png");
+            Dino *dino = game->player;
+            dino->setImage(":/Image/dinoDead0000.png");
+            dino->setPosition(dino->x(), dino->baselineY);
             QList<QTimer *> timers = allTimers->getList();
             GameOver *go = new GameOver();
             scene()->addWidget(go->getLabel());
@@ -43,8 +50,11 @@ void Cactus::move() {
             for (QTimer *timer : timers) {
                 timer->stop();
             }
+            game->player->clearFocus();
         }
     }
+
+    qDebug()<<moveSpeed;
 
     setPos(x() - moveSpeed, y());
 

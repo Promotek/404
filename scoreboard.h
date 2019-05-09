@@ -14,15 +14,15 @@ private:
     QTimer * timerPointer;
     QGraphicsTextItem * textItem;
     int ticker;
-    int moveSpeed;
+    double moveSpeed;
     TimerList *allTimers;
     int PointsByTick;
 public:
 
-    Scoreboard(int moveSpeed = 1);
+    Scoreboard(double moveSpeed = 1);
     void start();
     QGraphicsTextItem *getTextItem();
-    int getMoveSpeed();
+    double getMoveSpeed();
 
 public slots:
     void doTick();

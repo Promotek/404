@@ -10,12 +10,12 @@
 class Bird: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
-    int moveSpeed;
+    double moveSpeed;
     TimerList *allTimers;
 
 public:
     QTimer * moveTimer;
-    Bird(int moveSpeed);
+    Bird(double moveSpeed);
     void setImage(QString path);
     void initFly();
     void setPosition(int x, int y);

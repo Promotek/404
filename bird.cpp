@@ -17,7 +17,7 @@
 
 extern Game *game;
 
-Bird::Bird(int moveSpeed): QObject(), QGraphicsPixmapItem() {
+Bird::Bird(double moveSpeed): QObject(), QGraphicsPixmapItem() {
     int randomY = rand() % 3;
     setPosition(1300, randomY);
     this->moveSpeed = moveSpeed;

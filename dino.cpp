@@ -28,12 +28,16 @@ void Dino::run() {
     } else if (random == 2) {
         setImage(":/Image/dinorun0001.png");
     }
-    setPos(x(), baselineY);
+    setPosition(x(), baselineY);
 }
 
 void Dino::setImage(QString path){
     setPixmap(QPixmap(path));
     setScale(4);
+}
+
+void Dino::setPosition(qreal x, qreal y) {
+    setPos(x, y);
 }
 
 void Dino::keyPressEvent(QKeyEvent *event){
@@ -62,6 +66,7 @@ void Dino::initDuck() {
 
 void Dino::duck() {
     runTimer->stop();
+
     int random = rand() % 2 + 1;
     if (random == 1) {
        setImage(":/Image/dinoduck0000.png");
@@ -70,7 +75,7 @@ void Dino::duck() {
         setImage(":/Image/dinoduck0001.png");
         setScale(2.4);
     }
-    setPos(x(), duckPosition);
+    setPosition(x(), duckPosition);
 }
 
 void Dino::initJump() {
@@ -90,9 +95,6 @@ void Dino::initJump() {
 void Dino::doJump() {
     double jump;
     runTimer->stop();
-    if (duckTimer != nullptr) {
-        duckTimer->stop();
-    }
     setImage(":/Image/dinoJump0000.png");
 
     if  (this->jumpprogress >= 150){
@@ -109,13 +111,13 @@ void Dino::doJump() {
     if(jumpprogress < 75)
     {
         this -> distance= this->distance + 0.01;
-        setPos(x(),y()-jump);
+        setPosition(x(),y()-jump);
     }else if (jumpprogress > 75){
         this->distance=this->distance -0.01;
         if(y()+jump > baselineY){
-            setPos(x(), baselineY);
+            setPosition(x(), baselineY);
         }else{
-            setPos(x(),y()+jump);
+            setPosition(x(),y()+jump);
         }
     }
 }
