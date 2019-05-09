@@ -17,19 +17,19 @@ private:
     int baselineY;
     int duckPosition;
     TimerList *allTimers;
+    QTimer * jumpTimer;
     QTimer *runTimer;
     QTimer *duckTimer;
+
+    void initJump();
+    void initRun();
+    void initDuck();
 
 public:
     Dino(int baselineY);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent *event);
-    void initJump();
     void setImage(QString path);
-    void initRun();
-    void initDuck();
-
-    QTimer * timerPointer;
 
 public slots:
     void doJump();

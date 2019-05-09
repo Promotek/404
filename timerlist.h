@@ -7,6 +7,10 @@
 #include <QTimer>
 
 class TimerList: public QObject, public QGraphicsPixmapItem{
+
+private:
+    QList<QTimer *> allTimers;
+
 public:
     TimerList();
     void addToList(QTimer *timer);

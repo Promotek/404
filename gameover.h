@@ -9,15 +9,18 @@
 
 class GameOver: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
-public:
+
+private:
     QPushButton *button;
     QLabel *label;
-
-    GameOver();
     void setButton();
     void setLabel();
+
+public:
+    GameOver();
     QPushButton* getButton();
     QLabel *getLabel();
+
 public slots:
     void createNewGame();
 };

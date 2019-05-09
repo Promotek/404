@@ -12,10 +12,11 @@ class Cactus: public QObject, public QGraphicsPixmapItem {
 private:
     int moveSpeed;
     TimerList *allTimers;
+    QTimer * moveTimer;
 
 public:
-    QTimer * moveTimer;
     Cactus(int moveSpeed = 1, QString path = "");
+
 public slots:
     void move();
 };
