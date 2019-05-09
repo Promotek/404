@@ -11,7 +11,7 @@ Trail::Trail(): QObject(), QGraphicsRectItem(){
     allTimers->addToList(moveTimer);
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
 
-    moveTimer->start(50);
+    moveTimer->start(30);
 }
 
 void Trail::move() {

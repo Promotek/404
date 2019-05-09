@@ -20,13 +20,11 @@ Cactus::Cactus(double moveSpeed, QString path, int yPos): QObject(), QGraphicsPi
     this->moveSpeed = moveSpeed;
 
     moveTimer = new QTimer();
-
     // add Timer to list. Used to terminate all Timers if colliding
     allTimers->addToList(moveTimer);
-
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
 
-    moveTimer->start(50);
+    moveTimer->start(35);
 }
 
 void Cactus::setMoveSpeed(double moveSpeed) {

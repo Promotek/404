@@ -3,9 +3,12 @@
 
 #include <QTimer>
 
+#include <QDebug>
+
 extern Game *game;
 
 Scoreboard::Scoreboard(double moveSpeed){
+    qDebug()<< "scoreboard created";
     this->textItem = new QGraphicsTextItem();
     this->textItem->setPos(10,10);
     this->points = 0;

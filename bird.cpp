@@ -28,7 +28,7 @@ Bird::Bird(double moveSpeed): QObject(), QGraphicsPixmapItem() {
     allTimers->addToList(moveTimer);
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
 
-    moveTimer->start(50);
+    moveTimer->start(35);
 }
 
 void Bird::setPosition(int x, int y) {
@@ -50,16 +50,16 @@ void Bird::initFly() {
     QTimer *timer = new QTimer();
     allTimers->addToList(timer);
     connect(timer, SIGNAL(timeout()), this, SLOT(fly()));
-    timer->start(1000/10);
+    timer->start(160);
 }
 
 void Bird::fly() {
-    int random = rand() % 2 + 1;
-    if (random == 1) {
+    if (counter % 2 == 0) {
         setImage(":/Image/bird.png");
-    } else if (random == 2) {
+    } else {
         setImage(":/Image/bird2.png");
     }
+    counter++;
 }
 
 void Bird::move() {

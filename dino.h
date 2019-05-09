@@ -12,9 +12,12 @@ class Dino:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
     bool jumping = false;
+    bool ducking = false;
     int jumpprogress;
     double distance;
     int duckPosition;
+    int runCounter;
+    int duckCounter;
     TimerList *allTimers;
     QTimer *runTimer;
     QTimer *duckTimer;

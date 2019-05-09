@@ -14,20 +14,38 @@ Dino::Dino(int baselineY) : QGraphicsPixmapItem() {
     initRun();
 };
 
+void Dino::keyPressEvent(QKeyEvent *event){
+    if (event->key() == Qt::Key_Space || event->key() == Qt::Key_Up){
+        this->initJump();
+    } else if (event->key() == Qt::Key_Down) {
+        this->initDuck();
+    }
+}
+
+void Dino::keyReleaseEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Down) {
+        if (!jumping && ducking) {
+            duckTimer->stop();
+            ducking = false;
+            this->initRun();
+        }
+    }
+}
+
 void Dino::initRun() {
     runTimer = new QTimer();
     allTimers->addToList(runTimer);
     connect(runTimer, SIGNAL(timeout()), this, SLOT(run()));
-    runTimer->start(1000/100);
+    runTimer->start(80);
 }
 
 void Dino::run() {
-    int random = rand() % 2 + 1;
-    if (random == 1) {
+    if (runCounter % 2 == 0) {
         setImage(":/Image/dinorun0000.png");
-    } else if (random == 2) {
+    } else {
         setImage(":/Image/dinorun0001.png");
     }
+    runCounter++;
     setPosition(x(), baselineY);
 }
 
@@ -40,46 +58,32 @@ void Dino::setPosition(qreal x, qreal y) {
     setPos(x, y);
 }
 
-void Dino::keyPressEvent(QKeyEvent *event){
-    if (event->key() == Qt::Key_Space || event->key() == Qt::Key_Up){
-        this->initJump();
-    } else if (event->key() == Qt::Key_Down) {
-        this->initDuck();
-    }
-}
-
-void Dino::keyReleaseEvent(QKeyEvent *event) {
-    if (event->key() == Qt::Key_Down) {
-        duckTimer->stop();
-        this->initRun();
-    }
-}
-
 void Dino::initDuck() {
+    if (!jumping) {
     runTimer->stop();
 
+    ducking = true;
     duckTimer = new QTimer();
     allTimers->addToList(duckTimer);
     connect(duckTimer, SIGNAL(timeout()), this, SLOT(duck()));
-    duckTimer->start(1000/100);
+    duckTimer->start(80);
+    }
 }
 
 void Dino::duck() {
-    runTimer->stop();
-
-    int random = rand() % 2 + 1;
-    if (random == 1) {
+    if (duckCounter % 2 == 0) {
        setImage(":/Image/dinoduck0000.png");
        setScale(2.4);
-    } else if (random == 2) {
+    } else {
         setImage(":/Image/dinoduck0001.png");
         setScale(2.4);
     }
+    duckCounter++;
     setPosition(x(), duckPosition);
 }
 
 void Dino::initJump() {
-    if(!this->jumping){
+    if(!this->ducking){
         this->jumping = true;
         this->jumpprogress = 0;
         this->distance = 0.1;

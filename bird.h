@@ -11,6 +11,7 @@ class Bird: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
     double moveSpeed;
+    int counter;
     TimerList *allTimers;
 
 public:
