@@ -11,3 +11,8 @@ Wir brauchen noch eine UI mit Score die nach zeit hochgeht
 mit der Zeit soll dann auch die Geschwindigkeit der kakteen und später noch Vögel sich verschnellern
 Außerdem benötigen wir auch noch einen Game Start udn Game Over Overlay oder so
 
+
+Tobias:
+Spiel ist soweit fertig. Es sind nur noch kleinere Fehler, die man beheben muss,
+wie zum Beispiel, dass die Wolken noch im Vordergrund sind und der Dino dann hinter
+die Wolken springt. Ansonsten ist alles top soweit.
