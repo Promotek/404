@@ -6,9 +6,9 @@
 #include <QGraphicsRectItem>
 #include <QLabel>
 
-class Scoreboard :public QObject {
+class Scoreboard :public QObject
+{
     Q_OBJECT
-
 private:
     int points;
     QTimer * timerPointer;
@@ -17,8 +17,8 @@ private:
     int moveSpeed;
     TimerList *allTimers;
     int PointsByTick;
-
 public:
+
     Scoreboard(int moveSpeed = 1);
     void start();
     QGraphicsTextItem *getTextItem();

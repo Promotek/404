@@ -17,6 +17,7 @@ private:
      QGraphicsScene *scene;
 
 public:
+
     Obstacle(int moveSpeed = 1, QGraphicsScene *scene = nullptr);
 
 public slots:

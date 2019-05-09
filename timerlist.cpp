@@ -3,13 +3,15 @@
 #include <QList>
 #include <QTimer>
 
+QList<QTimer *> timers;
+
 TimerList::TimerList(){
 }
 
 void TimerList::addToList(QTimer *timer) {
-    allTimers.append(timer);
+    timers.append(timer);
 }
 
 QList<QTimer *> TimerList::getList() {
-    return allTimers;
+    return timers;
 }

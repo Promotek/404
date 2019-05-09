@@ -9,11 +9,11 @@ extern Game *game;
 TrailSpawner::TrailSpawner(QGraphicsScene *scene){
     this->scene = scene;
 
-    spawnTimer = new QTimer();
-    allTimers->addToList(spawnTimer);
-    connect(spawnTimer, SIGNAL(timeout()), this, SLOT(spawnTrail()));
+    timer = new QTimer();
+    allTimers->addToList(timer);
+    connect(timer, SIGNAL(timeout()), this, SLOT(spawnTrail()));
 
-    spawnTimer->start(600);
+    timer->start(600);
 }
 
 void TrailSpawner::spawnTrail(){

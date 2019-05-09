@@ -12,9 +12,9 @@ class TrailSpawner: public QObject{
 private:
     QGraphicsScene * scene;
     TimerList *allTimers;
-    QTimer *spawnTimer;
-
 public:
+    QTimer *timer;
+
     TrailSpawner(QGraphicsScene *scene);
 public slots:
     void spawnTrail();

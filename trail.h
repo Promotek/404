@@ -9,12 +9,10 @@
 
 class Trail: public QObject, public QGraphicsRectItem {
     Q_OBJECT
-
-private:
+public:
     QTimer *moveTimer;
     TimerList *allTimers;
 
-public:
     Trail(int xPosition, int yPosition);
 
 public slots:

@@ -79,11 +79,11 @@ void Dino::initJump() {
         this->jumpprogress = 0;
         this->distance = 0.1;
 
-        jumpTimer = new QTimer(this);
-        allTimers->addToList(jumpTimer);
-        connect(jumpTimer, SIGNAL(timeout()), this, SLOT(doJump()));
+        timerPointer = new QTimer(this);
+        allTimers->addToList(timerPointer);
+        connect(timerPointer, SIGNAL(timeout()), this, SLOT(doJump()));
 
-        jumpTimer->start(1000/120);
+        timerPointer->start(1000/120);
     }
 }
 
@@ -100,7 +100,7 @@ void Dino::doJump() {
         this->jumping = false;
         this->distance= 0.1;
         this->jumpprogress=1;
-        jumpTimer->stop();
+        timerPointer->stop();
         return;
     }
     jump = pow(this->distance,(-1));
