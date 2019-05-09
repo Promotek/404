@@ -6,9 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 
-Trail::Trail(int xPosition, int yPosition): QObject(), QGraphicsRectItem(){
-    setRect(xPosition, yPosition, 15, 5);
-
+Trail::Trail(): QObject(), QGraphicsRectItem(){
     moveTimer = new QTimer();
     allTimers->addToList(moveTimer);
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
@@ -22,4 +20,8 @@ void Trail::move() {
         scene()->removeItem(this);
         delete this;
     }
+}
+
+void Trail::setTrail(int xPos, int yPos, int width, int heigth) {
+    setRect(xPos, yPos, width, heigth);
 }

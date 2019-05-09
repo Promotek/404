@@ -13,7 +13,8 @@ public:
     QTimer *moveTimer;
     TimerList *allTimers;
 
-    Trail(int xPosition, int yPosition);
+    Trail();
+    void setTrail(int xPos, int yPos, int width, int heigth);
 
 public slots:
     void move();

@@ -17,12 +17,12 @@ Game::Game(){
 void Game::createUI() {
     // create a scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1200,600);
+    scene->setSceneRect(0,0,1200,500);
     setScene(scene);
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1200,600);
+    setFixedSize(1200,500);
 
     startGame();
 
@@ -31,7 +31,7 @@ void Game::createUI() {
 
 void Game::startGame() {
     // create a Dino
-    player = new Dino(400);
+    player = new Dino(350);
     this->scoreboard = new Scoreboard(15);
 
     //Floor "Rechteck" um Boden darszustellen. dieser braucht sich nicht zu bewegen.
@@ -49,7 +49,7 @@ void Game::startGame() {
 
     // set players and floor position
     player->setPos(width()-1100,height() - 200);
-    floor->setPos(0,this->height() - 130);
+    floor->setPos(0,this->height() - 70);
 
     this->scoreboard->start();
 

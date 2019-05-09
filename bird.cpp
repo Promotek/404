@@ -33,11 +33,11 @@ Bird::Bird(double moveSpeed): QObject(), QGraphicsPixmapItem() {
 
 void Bird::setPosition(int x, int y) {
     if (y == 0) {
-        setPos(x, 330);
+        setPos(x, 280);
     } else if (y == 1) {
-        setPos(x, 380);
+        setPos(x, 330);
     } else if (y == 2) {
-        setPos(x, 430);
+        setPos(x, 380);
     }
 }
 

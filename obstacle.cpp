@@ -34,15 +34,15 @@ void Obstacle::setObstacle() {
         scene->addItem(bird);
     } else if(random == 1) {
         //cactusBig
-        cactus = new Cactus(moveSpeed, ":/Image/cactusBig0000.png");
+        cactus = new Cactus(moveSpeed, ":/Image/cactusBig0000.png", 350);
         scene->addItem(cactus);
     } else if(random == 2) {
         //cactusSmall
-        cactus = new Cactus(moveSpeed, ":/Image/cactusSmall0000.png");
+        cactus = new Cactus(moveSpeed, ":/Image/cactusSmall0000.png", 385);
         scene->addItem(cactus);
     } else if (random == 3) {
         //cactusMany
-        cactus = new Cactus(moveSpeed, ":/Image/cactusSmallMany0000.png");
+        cactus = new Cactus(moveSpeed, ":/Image/cactusSmallMany0000.png", 385);
         scene->addItem(cactus);
     }
 }
