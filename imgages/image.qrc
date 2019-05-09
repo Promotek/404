@@ -15,5 +15,6 @@
         <file>dinoJump0000.png</file>
         <file>reloadButton.png</file>
         <file>gameover.png</file>
+        <file>cloud0000.png</file>
     </qresource>
 </RCC>

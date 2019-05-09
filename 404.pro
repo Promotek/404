@@ -26,6 +26,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     bird.cpp \
     cactus.cpp \
+    cloud.cpp \
+    cloudspawner.cpp \
     dino.cpp \
     game.cpp \
     gameover.cpp \
@@ -38,6 +40,8 @@ SOURCES += main.cpp \
 HEADERS  += \
     bird.h \
     cactus.h \
+    cloud.h \
+    cloudspawner.h \
     dino.h \
     game.h \
     gameover.h \

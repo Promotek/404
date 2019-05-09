@@ -3,13 +3,12 @@
 #include "cactus.h"
 #include "dino.h"
 #include "scoreboard.h"
+#include "timerlist.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTimer>
 #include <QList>
-
-#include "timerlist.h"
 
 Game::Game(){
    createUI();
@@ -59,6 +58,9 @@ void Game::startGame() {
 
     //Spawn Obstacle
     this->obstacle = new Obstacle(this->scoreboard->getMoveSpeed(), scene);
+
+    //Spawn Clouds
+    this->cloudSpawner = new CloudSpawner();
 }
 
 

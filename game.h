@@ -5,6 +5,7 @@
 #include "scoreboard.h"
 #include "trailspawner.h"
 #include "obstacle.h"
+#include "cloudspawner.h"
 
 #include <QWidget>
 #include <QGraphicsScene>
@@ -24,6 +25,7 @@ public:
     Scoreboard * scoreboard;
     TrailSpawner *trailSpawner;
     Obstacle *obstacle;
+    CloudSpawner *cloudSpawner;
 };
 
 #endif // GAME_H
