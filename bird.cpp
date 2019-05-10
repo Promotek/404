@@ -81,6 +81,7 @@ void Bird::move() {
             for (QTimer *timer : timers) {
                 timer->stop();
             }
+            game->player->clearFocus();
         }
     }
 
