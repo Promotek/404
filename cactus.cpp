@@ -13,10 +13,10 @@
 
 extern Game *game;
 
-Cactus::Cactus(double moveSpeed, QString path, int yPos): QObject(), QGraphicsPixmapItem() {
+Cactus::Cactus(double moveSpeed, QString path, int yPos, int xPos): QObject(), QGraphicsPixmapItem() {
     setPixmap(QPixmap(path));
     setScale(0.9);
-    setPos(1300, yPos);
+    setPos(1200 + xPos, yPos);
     this->moveSpeed = moveSpeed;
 
     moveTimer = new QTimer();

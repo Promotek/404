@@ -15,7 +15,7 @@ private:
 
 public:
     QTimer * moveTimer;
-    Cactus(double moveSpeed = 1, QString path = "", int yPos = 0);
+    Cactus(double moveSpeed = 1, QString path = "", int yPos = 0, int xPos = 1200);
     void setMoveSpeed(double moveSpeed);
 
 public slots:

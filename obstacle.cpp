@@ -17,7 +17,7 @@ Obstacle::Obstacle(double moveSpeed, QGraphicsScene *scene){
     allTimers->addToList(timer);
     connect(timer, SIGNAL(timeout()), this, SLOT(setObstacle()));
 
-    timer->start(3000);
+    timer->start(2500);
 
 }
 
@@ -27,6 +27,7 @@ void Obstacle::setMoveSpeed(double moveSpeed) {
 
 void Obstacle::setObstacle() {
     int random = rand() % 4;
+    int xPos = rand() % 200 + 50;
 
     if (random == 0) {
         //bird
@@ -34,15 +35,15 @@ void Obstacle::setObstacle() {
         scene->addItem(bird);
     } else if(random == 1) {
         //cactusBig
-        cactus = new Cactus(moveSpeed, ":/Image/cactusBig0000.png", 350);
+        cactus = new Cactus(moveSpeed, ":/Image/cactusBig0000.png", 350, xPos);
         scene->addItem(cactus);
     } else if(random == 2) {
         //cactusSmall
-        cactus = new Cactus(moveSpeed, ":/Image/cactusSmall0000.png", 385);
+        cactus = new Cactus(moveSpeed, ":/Image/cactusSmall0000.png", 385, xPos);
         scene->addItem(cactus);
     } else if (random == 3) {
         //cactusMany
-        cactus = new Cactus(moveSpeed, ":/Image/cactusSmallMany0000.png", 385);
+        cactus = new Cactus(moveSpeed, ":/Image/cactusSmallMany0000.png", 385, xPos);
         scene->addItem(cactus);
     }
 }

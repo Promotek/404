@@ -83,7 +83,7 @@ void Dino::duck() {
 }
 
 void Dino::initJump() {
-    if(!this->ducking){
+    if(!this->ducking && !this->jumping){
         this->jumping = true;
         this->jumpprogress = 0;
         this->distance = 0.1;
