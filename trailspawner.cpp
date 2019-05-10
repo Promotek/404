@@ -13,23 +13,23 @@ TrailSpawner::TrailSpawner(QGraphicsScene *scene){
     allTimers->addToList(timer);
     connect(timer, SIGNAL(timeout()), this, SLOT(spawnTrail()));
 
-    timer->start(400);
+    timer->start(250);
 }
 
 void TrailSpawner::spawnTrail(){
     Trail * trail = new Trail();
-    trail->setTrail(1200, 485, 5, 1);
+    trail->setTrail(1230 + rand()% 20 +1, 450, rand()% 8 + 1, 2);
     scene->addItem(trail);
     Trail * trail2 = new Trail();
-    trail2->setTrail(1320, 440, 6, 1);
+    trail2->setTrail(1250 + rand()% 20 +1, 455, rand()% 8 + 1, 2);
     scene->addItem(trail2);
     Trail * trail3 = new Trail();
-    trail3->setTrail(1250, 450, 7, 1);
+    trail3->setTrail(1200 + rand()% 20 +1, 445, rand()% 15 + 1, 2);
     scene->addItem(trail3);
-    Trail * trail4 = new Trail();
+   /* Trail * trail4 = new Trail();
     trail4->setTrail(1215, 460, 8, 1);
     scene->addItem(trail4);
     Trail * trail5 = new Trail();
     trail5->setTrail(1280, 480, 9, 1);
-    scene->addItem(trail5);
+    scene->addItem(trail5);*/
 }
