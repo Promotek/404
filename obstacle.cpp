@@ -27,7 +27,7 @@ void Obstacle::setMoveSpeed(double moveSpeed) {
 
 void Obstacle::setObstacle() {
     int random = rand() % 4;
-    int xPos = rand() % 200 + 50;
+    int xPos = rand() % 150 + 50;
 
     if (random == 0) {
         //bird
