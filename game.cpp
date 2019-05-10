@@ -41,8 +41,8 @@ void Game::startGame() {
     floor->setRect(0,0,1500,1);
 
     // add items to the scene
-    scene->addItem(player);
     scene->addItem(floor);
+    scene->addItem(player);
     scene->addItem(this->scoreboard->getTextItem());
 
     // make rect focusable
