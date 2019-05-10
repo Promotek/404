@@ -16,5 +16,17 @@
         <file>reloadButton.png</file>
         <file>gameover.png</file>
         <file>cloud0000.png</file>
+        <file>birdNegative.png</file>
+        <file>bird2Negative.png</file>
+        <file>cactusBigNegative0000.png</file>
+        <file>cactusSmallManyNegative0000.png</file>
+        <file>cactusSmallNegative0000.png</file>
+        <file>dinoDeadNegative0000.png</file>
+        <file>dinoduckNegative0000.png</file>
+        <file>dinoduckNegative0001.png</file>
+        <file>dinoJumpNegative0000.png</file>
+        <file>dinoNegative0000.png</file>
+        <file>dinorunNegative0000.png</file>
+        <file>dinorunNegative0001.png</file>
     </qresource>
 </RCC>

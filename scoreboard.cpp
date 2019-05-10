@@ -2,6 +2,7 @@
 #include "game.h"
 
 #include <QTimer>
+#include <QLinearGradient>
 
 extern Game *game;
 
@@ -23,7 +24,7 @@ void Scoreboard::start(){
     this->timerPointer = new QTimer(this);
     allTimers->addToList(timerPointer);
     connect(this->timerPointer, &QTimer::timeout, this, &Scoreboard::doTick);
-    timerPointer->start(1000/30);
+    timerPointer->start(33);
 }
 
 QGraphicsTextItem *Scoreboard::getTextItem(){
@@ -31,16 +32,16 @@ QGraphicsTextItem *Scoreboard::getTextItem(){
 }
 
 void Scoreboard::doTick(){
-    if(ticker == 100){
+   /* if(ticker == 100){
 
         this->PointsByTick += 1;
         if(this->PointsByTick % 10 == 0){
             this->PointsByTick += 1;
         }
         this->ticker = 0;
-    }
+    }*/
 
-    if(this->points% 100 == 0){
+    if(this->points % 100 == 0){
         //Speedup Cactus movement
         this->moveSpeed += 1;
         if (this->moveSpeed >= 120) {
@@ -48,9 +49,23 @@ void Scoreboard::doTick(){
         }
         game->obstacle->setMoveSpeed(moveSpeed);
     }
+    if (this->points >= 2000 && this->points % 2000 == 0) {
+        game->isChangeColor = true;
+        game->scene->setBackgroundBrush(Qt::black);
+        game->floor->setPen(QPen(Qt::white));
+    }
+    if (this->points >= 3500 && this->points % 3500 == 0) {
+        game->isChangeColor = false;
+        game->scene->setBackgroundBrush(Qt::white);
+        game->floor->setPen(QPen(Qt::black));
+    }
 
-    this->points += this->PointsByTick;
+    this->points += 1;
 
     this->textItem->setPlainText(QString().number(this->points));
-    this->ticker++;
+    //this->ticker++;
+}
+
+int Scoreboard::getPoints() {
+    return this->points;
 }

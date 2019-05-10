@@ -11,6 +11,7 @@ class Scoreboard :public QObject
     Q_OBJECT
 private:
     int points;
+    bool isChange = false;
     QTimer * timerPointer;
     QGraphicsTextItem * textItem;
     int ticker;
@@ -23,6 +24,8 @@ public:
     void start();
     QGraphicsTextItem *getTextItem();
     double getMoveSpeed();
+    int getPoints();
+    bool isChangeColor();
 
 public slots:
     void doTick();

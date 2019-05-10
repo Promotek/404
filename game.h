@@ -15,6 +15,8 @@
 class Game: public QGraphicsView{
 
 public:
+    bool isChangeColor = false;
+
     Game();
     void startGame();
     void createUI();

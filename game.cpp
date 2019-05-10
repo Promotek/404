@@ -10,6 +10,8 @@
 #include <QTimer>
 #include <QList>
 
+#include <QDebug>
+
 Game::Game(){
    createUI();
 }

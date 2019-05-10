@@ -37,7 +37,11 @@ void Cactus::move() {
     for (int i = 0; i < items.size(); i++) {
         if (typeid (*(items[i])) == typeid (Dino)) {
             Dino *dino = game->player;
-            dino->setImage(":/Image/dinoDead0000.png");
+            QString path = ":/Image/dinoDead0000.png";
+            if(game->isChangeColor) {
+                path = ":/Image/dinoDeadNegative0000.png";
+            }
+            dino->setImage(path);
             dino->setPosition(dino->x(), dino->baselineY);
             QList<QTimer *> timers = allTimers->getList();
             GameOver *go = new GameOver();

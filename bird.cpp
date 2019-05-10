@@ -17,7 +17,9 @@
 
 extern Game *game;
 
-Bird::Bird(double moveSpeed): QObject(), QGraphicsPixmapItem() {
+Bird::Bird(double moveSpeed, QString path1, QString path2): QObject(), QGraphicsPixmapItem() {
+    this->path1 = path1;
+    this->path2 = path2;
     int randomY = rand() % 3;
     setPosition(1300, randomY);
     this->moveSpeed = moveSpeed;
@@ -55,9 +57,9 @@ void Bird::initFly() {
 
 void Bird::fly() {
     if (counter % 2 == 0) {
-        setImage(":/Image/bird.png");
+        setImage(path1);
     } else {
-        setImage(":/Image/bird2.png");
+        setImage(path2);
     }
     counter++;
 }
@@ -67,7 +69,11 @@ void Bird::move() {
     QList<QGraphicsItem *> items = collidingItems();
     for (int i = 0; i < items.size(); i++) {
         if (typeid (*(items[i])) == typeid (Dino)) {
-            game->player->setImage(":/Image/dinoDead0000.png");
+            QString path = ":/Image/dinoDead0000.png";
+            if(game->isChangeColor) {
+                path = ":/Image/dinoDeadNegative0000.png";
+            }
+            game->player->setImage(path);
             QList<QTimer *> timers = allTimers->getList();
             GameOver *go = new GameOver();
             scene()->addWidget(go->getLabel());

@@ -6,6 +6,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 
+extern Game *game;
+
 Trail::Trail(): QObject(), QGraphicsRectItem(){
     moveTimer = new QTimer();
     allTimers->addToList(moveTimer);
@@ -24,4 +26,7 @@ void Trail::move() {
 
 void Trail::setTrail(int xPos, int yPos, int width, int heigth) {
     setRect(xPos, yPos, width, heigth);
+    if (game->isChangeColor) {
+        setPen(QPen(Qt::white));
+    }
 }

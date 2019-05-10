@@ -18,6 +18,11 @@ private:
      QTimer *timer;
      QGraphicsScene *scene;
 
+     void createBird();
+     void createCactusBig(int xPos);
+     void createCactusSmall(int xPos);
+     void createCactusMany(int xPos);
+
 public:
      Bird *bird;
      Cactus *cactus;

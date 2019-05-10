@@ -18,6 +18,11 @@ private:
     int duckPosition;
     int runCounter;
     int duckCounter;
+    QString runPath1;
+    QString runPath2;
+    QString jumpPath;
+    QString duckPath1;
+    QString duckPath2;
     TimerList *allTimers;
     QTimer *runTimer;
     QTimer *duckTimer;

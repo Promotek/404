@@ -40,10 +40,17 @@ void Dino::initRun() {
 }
 
 void Dino::run() {
-    if (runCounter % 2 == 0) {
-        setImage(":/Image/dinorun0000.png");
+    if (game->isChangeColor) {
+        runPath1 = ":/Image/dinorunNegative0000.png";
+        runPath2 = ":/Image/dinorunNegative0001.png";
     } else {
-        setImage(":/Image/dinorun0001.png");
+        runPath1 = ":/Image/dinorun0000.png";
+        runPath2 = ":/Image/dinorun0001.png";
+    }
+    if (runCounter % 2 == 0) {
+        setImage(runPath1);
+    } else {
+        setImage(runPath2);
     }
     runCounter++;
     setPosition(x(), baselineY);
@@ -71,11 +78,18 @@ void Dino::initDuck() {
 }
 
 void Dino::duck() {
+    if (game->isChangeColor) {
+        duckPath1 = ":/Image/dinoduckNegative0000.png";
+        duckPath2 = ":/Image/dinoduckNegative0001.png";
+    } else {
+        duckPath1 = ":/Image/dinoduck0000.png";
+        duckPath2 = ":/Image/dinoduck0001.png";
+    }
     if (duckCounter % 2 == 0) {
-       setImage(":/Image/dinoduck0000.png");
+       setImage(duckPath1);
        setScale(2.4);
     } else {
-        setImage(":/Image/dinoduck0001.png");
+        setImage(duckPath2);
         setScale(2.4);
     }
     duckCounter++;
@@ -99,7 +113,12 @@ void Dino::initJump() {
 void Dino::doJump() {
     double jump;
     runTimer->stop();
-    setImage(":/Image/dinoJump0000.png");
+    if (game->isChangeColor) {
+        jumpPath = ":/Image/dinoJumpNegative0000.png";
+    } else {
+        jumpPath = ":/Image/dinoJump0000.png";
+    }
+    setImage(jumpPath);
 
     if  (this->jumpprogress >= 150){
         initRun();
