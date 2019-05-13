@@ -1,14 +1,15 @@
-#include "main.h"
-#include "ui_main.h"
+#include "game.h"
 
-main::main(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::main)
-{
-    ui->setupUi(this);
-}
+#include <QApplication>
+#include <QWidgetList>
 
-main::~main()
-{
-    delete ui;
+Game * game;
+
+int main(int argc, char *argv[]){
+    QApplication a(argc, argv);
+
+    game = new Game();
+    game->show();
+
+    return a.exec();
 }

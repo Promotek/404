@@ -1,0 +1,10 @@
+digraph "TrailSpawner::spawnTrail"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node7 [label="TrailSpawner::spawnTrail",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="TrailSpawner::TrailSpawner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_trail_spawner.html#a1ed85a25fd31047783e9d2302b7d3c84",tooltip=" "];
+}

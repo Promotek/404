@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-04-29T14:47:38
+# Project created by QtCreator 2019-04-29T15:30:58
 #
 #-------------------------------------------------
 
@@ -23,9 +23,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-SOURCES += main.cpp\
-        main.cpp
+SOURCES += main.cpp \
+    bird.cpp \
+    cactus.cpp \
+    cloud.cpp \
+    cloudspawner.cpp \
+    dino.cpp \
+    game.cpp \
+    gameover.cpp \
+    obstacle.cpp \
+    scoreboard.cpp \
+    timerlist.cpp \
+    trail.cpp \
+    trailspawner.cpp
 
-HEADERS  += main.h
+HEADERS  += \
+    bird.h \
+    cactus.h \
+    cloud.h \
+    cloudspawner.h \
+    dino.h \
+    game.h \
+    gameover.h \
+    gameoverscreen.h \
+    obstacle.h \
+    scoreboard.h \
+    timerlist.h \
+    trail.h \
+    trailspawner.h
 
 FORMS    +=
+
+RESOURCES += \
+    imgages/image.qrc
+
+DISTFILES +=
