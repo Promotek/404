@@ -10,6 +10,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QList>
+#include <typeinfo>
 
 extern Game *game;
 
