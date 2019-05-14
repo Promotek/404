@@ -44,5 +44,6 @@ QLabel* GameOver::getLabel() {
 }
 
 void GameOver::createNewGame() {
+    game->isChangeColor = false;
     game->createUI();
 }

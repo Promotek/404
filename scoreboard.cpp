@@ -49,13 +49,13 @@ void Scoreboard::doTick(){
         }
         game->obstacle->setMoveSpeed(moveSpeed);
     }
-    if (this->points >= 2000 && this->points % 2000 == 0) {
+    if (this->points >= 400 && this->points % 400 == 0) {
         game->isChangeColor = true;
         game->scene->setBackgroundBrush(Qt::black);
         game->floor->setPen(QPen(Qt::white));
         this->textItem->setDefaultTextColor(Qt::white);
     }
-    if (this->points >= 3500 && this->points % 3500 == 0) {
+    if (this->points >= 550 && this->points % 550 == 0) {
         game->isChangeColor = false;
         game->scene->setBackgroundBrush(Qt::white);
         game->floor->setPen(QPen(Qt::black));
